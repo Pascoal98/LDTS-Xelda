@@ -45,6 +45,11 @@ public class Game {
     }
 
     public void startGame() {
+        try {
+            draw();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
         while(lab.getFlag()) {
             try {
                 KeyStroke key = screen.readInput();
