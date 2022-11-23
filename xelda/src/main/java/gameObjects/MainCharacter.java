@@ -6,9 +6,9 @@ import com.googlecode.lanterna.TextColor;
 import com.googlecode.lanterna.graphics.TextGraphics;
 
 
-public class Hero extends Element{
+public class MainCharacter extends Element{
 
-    public Hero(int x, int y) {
+    public MainCharacter(int x, int y) {
         super(x,y);
     }
     public Position moveUp() {
