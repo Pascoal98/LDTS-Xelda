@@ -3,7 +3,7 @@
 > Include here one or two paragraphs explaining the main idea of the project, followed by a sentence identifying who the authors are.
 
 This game is inspired by the old style Zelda games with our own twist.
-The main character gets lost in some mysterious place and wants to find a way out but in his path he finds some troublesome monsters trying to capture him, the main character only has two options, run away or fight.
+The main character gets lost in a castle and wants to find a way out but in his path he finds some troublesome monsters trying to capture him, the main character only has two options, run away or fight.
 
 
 ### IMPLEMENTED FEATURES
@@ -12,12 +12,21 @@ The main character gets lost in some mysterious place and wants to find a way ou
 
 **Examples**:
 
-- **Jumping** - The game character will jump when the space bar key is pressed.
-- **Getting hidden coins** - When the game character hits a platform from below (by jumping beneath it) it will smash that segment of the platform and will get any coins that may exist hidden there.
+- **Movement** - The game character will move around whenever the following keys are pressed ( w-up, a-left, s-down, d-right).
+- **Getting coins** - When the character steps on coin, the number of coins is incremented.
 
 ### PLANNED FEATURES
 
 > This section is similar to the previous one but should list the features that are not yet implemented. Instead of screenshots you should include GUI mock-ups for the planned features.
+
+The following features are still **not implemented** :
+- **Shop** - A place where coins can be traded for potions.
+- **Potions** - Only accessible by the shop, can be bought with coins. Potions examples: Health, speed, etc...
+- **Combat** - The combat mechanics implemented will be : odd or even, rock paper scissors.
+- **Mobs** - In every room there will be different kind of mobs, ready to attack you.
+- **Changing rooms** - Inside the castle our hero is capable of progressing in his journey by exploring multiple rooms (tower, dungeon, hall, etc..)
+- **Inventory** - Shows the items that can be used by the hero.
+- **Menu** - Interface (start game,save - saving stage of the game,coins,items -> in a text file).
 
 ### DESIGN
 
