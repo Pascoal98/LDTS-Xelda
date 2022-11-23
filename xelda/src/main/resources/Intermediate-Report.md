@@ -12,7 +12,7 @@ The main character gets lost in a castle and wants to find a way out but in his 
 
 **Examples**:
 
-- **Movement** - The game character will move around whenever the following keys are pressed ( w-up, a-left, s-down, d-right).
+- **Movement** - The game character will move around whenever the following keys are pressed ( arrow-up, arrow-left, arrow-down, arrow-right).
 - **Getting coins** - When the character steps on coin, the number of coins is incremented.
 
 ### PLANNED FEATURES
