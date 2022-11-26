@@ -26,7 +26,7 @@ The following features are still **not implemented** :
 
 - With all these features implemented, the UML diagram should look like this:
 
-<img height="600" src="/Users/henrique/Desktop/Captura de ecrã 2022-11-25, às 23.41.42.png" width="1000"/>
+![img](https://github.com/FEUP-LDTS-2022/project-l16gr04/blob/main/xelda/docs/UML.png)
 
 ### DESIGN
 
@@ -60,7 +60,7 @@ To solve this problem, we implemented the MVC (model-view-controller) design pat
 
 #### Mutation Testing Report
 
-<img height="600" src="/Users/henrique/Desktop/Captura de ecrã 2022-11-25, às 22.13.36.png" width="1000"/>
+![img](https://github.com/FEUP-LDTS-2022/project-l16gr04/blob/main/xelda/docs/PitTest.png)
 
 ### SELF-EVALUATION
 
