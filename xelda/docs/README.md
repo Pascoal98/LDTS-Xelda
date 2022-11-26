@@ -56,7 +56,7 @@ To solve this problem, we implemented the MVC (model-view-controller) design pat
 
 #### Coverage Report
 
-<img height="400" src="/Users/henrique/Desktop/Captura de ecrã 2022-11-25, às 22.44.35.png" width="1000"/>
+![img](https://github.com/FEUP-LDTS-2022/project-l16gr04/blob/main/xelda/docs/TestCoverage.png)
 
 #### Mutation Testing Report
 
