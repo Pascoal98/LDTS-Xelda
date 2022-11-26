@@ -38,31 +38,30 @@ public class PositionTest {
     @Test
     public void equalsTrueDiffObject() {
         Position position2 = new Position(5, 10);
-        Assertions.assertTrue(position.equals(position2));
+        Assertions.assertEquals(position, position2);
     }
 
     @Test
     public void equalsTrueSameObject() {
-        Assertions.assertTrue(position.equals(position));
+        Assertions.assertEquals(position, position);
     }
 
     @Test
     public void equalsFalseDiffObject() {
         Position position2 = new Position(5, 20);
-        Assertions.assertFalse(position.equals(position2));
+        Assertions.assertNotEquals(position, position2);
         Position position3 = new Position(20, 10);
-        Assertions.assertFalse(position.equals(position3));
+        Assertions.assertNotEquals(position, position3);
     }
 
     @Test
     public void equalsFalseNull() {
-        Position pos = null;
-        Assertions.assertFalse(position.equals(pos));
+        Assertions.assertNotEquals(position, null);
     }
 
     @Test
     public void equalsFalseDiffClass() {
         Wall wall = new Wall(5,10);
-        Assertions.assertFalse(position.equals(wall));
+        Assertions.assertNotEquals(position, wall);
     }
 }

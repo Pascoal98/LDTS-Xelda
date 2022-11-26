@@ -1,23 +1,17 @@
 ## LDTS-L16G04  <XELDA>
 
-> Include here one or two paragraphs explaining the main idea of the project, followed by a sentence identifying who the authors are.
-
 This game is inspired by the old style Zelda games with our own twist.
-The main character gets lost in a castle and wants to find a way out but in his path he finds some troublesome monsters trying to capture him, the main character only has two options, run away or fight.
+
+The main character gets lost in a castle and wants to find a way out but in his path he finds some troublesome monsters trying to capture him. The main character only has two options, run away or fight.
+
+This project was developed by Bruno Pinheiro (up201705562@fe.up.pt), Eduardo Machado (up202105337@fe.up.pt) and Henrique Silva (up202105647@fe.up.pt) for LDTS 2022/2023.
 
 
 ### IMPLEMENTED FEATURES
 
-> This section should contain a list of implemented features and their descriptions. In the end of the section, include two or three screenshots that illustrate the most important features.
-
-**Examples**:
-
-- **Movement** - The game character will move around whenever the following keys are pressed ( arrow-up, arrow-left, arrow-down, arrow-right).
-- **Getting coins** - When the character steps on coin, the number of coins is incremented.
+- **Movement** - The game character will move around whenever the following keys are pressed (arrow-up, arrow-left, arrow-down, arrow-right).
 
 ### PLANNED FEATURES
-
-> This section is similar to the previous one but should list the features that are not yet implemented. Instead of screenshots you should include GUI mock-ups for the planned features.
 
 The following features are still **not implemented** :
 - **Shop** - A place where coins can be traded for potions.
@@ -27,76 +21,49 @@ The following features are still **not implemented** :
 - **Changing rooms** - Inside the castle our hero is capable of progressing in his journey by exploring multiple rooms (tower, dungeon, hall, etc..)
 - **Inventory** - Shows the items that can be used by the hero.
 - **Menu** - Interface (start game,save - saving stage of the game,coins,items -> in a text file).
+- **Getting coins** - When the character steps on coin, the number of coins is incremented.
+
+
+- With all these features implemented, the UML diagram should look like this:
+
+<img height="600" src="/Users/henrique/Desktop/Captura de ecrã 2022-11-25, às 23.41.42.png" width="1000"/>
 
 ### DESIGN
 
-> This section should be organized in different subsections, each describing a different design problem that you had to solve during the project. Each subsection should be organized in four different parts:
+### Architectural Pattern
 
-- **Problem in Context.** The description of the design context and the concrete problem that motivated the instantiation of the pattern. Someone else other than the original developer should be able to read and understand all the motivations for the decisions made. When refering to the implementation before the pattern was applied, don’t forget to [link to the relevant lines of code](https://help.github.com/en/articles/creating-a-permanent-link-to-a-code-snippet) in the appropriate version.
-- **The Pattern.** Identify the design pattern to be applied, why it was selected and how it is a good fit considering the existing design context and the problem at hand.
-- **Implementation.** Show how the pattern roles, operations and associations were mapped to the concrete design classes. Illustrate it with a UML class diagram, and refer to the corresponding source code with links to the relevant lines (these should be [relative links](https://help.github.com/en/articles/about-readmes#relative-links-and-image-paths-in-readme-files). When doing this, always point to the latest version of the code.
-- **Consequences.** Benefits and liabilities of the design after the pattern instantiation, eventually comparing these consequences with those of alternative solutions.
+**Problem in Context.**
 
-**Example of one of such subsections**:
+The architecture of the project is one of the most important parts of the project. Choosing the right approach is essential.
 
-------
+**The Pattern.**
 
-#### THE JUMP ACTION OF THE KANGAROOBOY SHOULD BEHAVE DIFFERENTLY DEPENDING ON ITS STATE
+To solve this problem, we implemented the MVC (model-view-controller) design pattern.
 
-**Problem in Context**
+**Implementation.**
+- Model - Represents the data.
+- View - Displays the model data, and sends user actions (user inputs, such as pressing the keyboard) to the controller.
+- Controller - Provides model data to the view, and processes user actions (user inputs, such as pressing the keyboard).
 
-There was a lot of scattered conditional logic when deciding how the KangarooBoy should behave when jumping, as the jumps should be different depending on the items that came to his possession during the game (an helix will alow him to fly, driking a potion will allow him to jump double the height, etc.). This is a violation of the **Single Responsability Principle**. We could concentrate all the conditional logic in the same method to circumscribe the issue to that one method but the **Single Responsability Principle** would still be violated.
 
-**The Pattern**
-
-We have applied the **State** pattern. This pattern allows you to represent different states with different subclasses. We can switch to a different state of the application by switching to another implementation (i.e., another subclass). This pattern allowed to address the identified problems because […].
-
-**Implementation**
-
-The following figure shows how the pattern’s roles were mapped to the application classes.
-
-![img](https://www.fe.up.pt/~arestivo/page/img/examples/lpoo/state.svg)
-
-These classes can be found in the following files:
-
-- [Character](https://web.fe.up.pt/~arestivo/page/courses/2021/lpoo/template/src/main/java/Character.java)
-- [JumpAbilityState](https://web.fe.up.pt/~arestivo/page/courses/2021/lpoo/template/src/main/java/JumpAbilityState.java)
-- [DoubleJumpState](https://web.fe.up.pt/~arestivo/page/courses/2021/lpoo/template/src/main/java/DoubleJumpState.java)
-- [HelicopterState](https://web.fe.up.pt/~arestivo/page/courses/2021/lpoo/template/src/main/java/HelicopterState.java)
-- [IncreasedGravityState](https://web.fe.up.pt/~arestivo/page/courses/2021/lpoo/template/src/main/java/IncreasedGravityState.java)
-
-**Consequences**
-
-The use of the State Pattern in the current design allows the following benefits:
-
-- The several states that represent the character’s hability to jump become explicit in the code, instead of relying on a series of flags.
-- We don’t need to have a long set of conditional if or switch statements associated with the various states; instead, polimorphism is used to activate the right behavior.
-- There are now more classes and instances to manage, but still in a reasonable number.
-
-#### KNOWN CODE SMELLS AND REFACTORING SUGGESTIONS
-
-> This section should describe 3 to 5 different code smells that you have identified in your current implementation, and suggest ways in which the code could be refactored to eliminate them. Each smell and refactoring suggestions should be described in its own subsection.
-
-**Example of such a subsection**:
+**Consequences.**
+- Modifications do not affect the entire model.
+- Easy planning and maintenance.
 
 ------
-
-#### DATA CLASS
-
-The `PlatformSegment` class is a **Data Class**, as it contains only fields, and no behavior. This is problematic because […].
-
-A way to improve the code would be to move the `isPlatformSegmentSolid()` method to the `PlatformSegment` class, as this logic is purely concerned with the `PlatformSegment` class.
 
 ### TESTING
 
-- Screenshot of coverage report.
-- Link to mutation testing report.
+#### Coverage Report
+
+<img height="400" src="/Users/henrique/Desktop/Captura de ecrã 2022-11-25, às 22.44.35.png" width="1000"/>
+
+#### Mutation Testing Report
+
+<img height="600" src="/Users/henrique/Desktop/Captura de ecrã 2022-11-25, às 22.13.36.png" width="1000"/>
 
 ### SELF-EVALUATION
 
-> In this section describe how the work regarding the project was divided between the students. In the event that members of the group do not agree on a work distribution, the group should send an email to the teacher explaining the disagreement.
-
-**Example**:
-
-- John Doe: 40%
-- Jane Doe: 60%
+- Bruno Pinheiro (up201705562): 34%
+- Eduardo Machado (up202105337): 33%
+- Henrique Silva (up202105647): 33%
