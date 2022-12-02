@@ -26,7 +26,7 @@ The following features are still **not implemented** :
 
 - With all these features implemented, the UML diagram should look like this:
 
-![img](https://github.com/FEUP-LDTS-2022/project-l16gr04/blob/main/xelda/docs/UML.png)
+![img](UML.png)
 
 ### DESIGN
 
