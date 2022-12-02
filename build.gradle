@@ -27,5 +27,5 @@ test {
 }
 
 application {
-    mainClass.set("game/Application")
+    mainClass.set("Start")
 }

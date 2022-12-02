@@ -1,6 +1,6 @@
-package game;
+import game.Game;
 
-public class Application {
+public class Start {
     public static void main(String[] args){
         Game game = new Game();
         game.startGame();
