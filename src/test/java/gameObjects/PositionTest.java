@@ -1,5 +1,7 @@
 package gameObjects;
 
+import model.game.elements.Position;
+import model.game.elements.Wall;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;

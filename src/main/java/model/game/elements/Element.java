@@ -1,4 +1,4 @@
-package gameObjects;
+package model.game.elements;
 
 import com.googlecode.lanterna.graphics.TextGraphics;
 

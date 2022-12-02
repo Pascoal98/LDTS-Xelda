@@ -6,7 +6,7 @@ import com.googlecode.lanterna.screen.Screen;
 import com.googlecode.lanterna.screen.TerminalScreen;
 import com.googlecode.lanterna.terminal.DefaultTerminalFactory;
 import com.googlecode.lanterna.terminal.Terminal;
-import gameObjects.Labyrinth;
+import model.game.labyrinth.Labyrinth;
 
 import java.io.IOException;
 
