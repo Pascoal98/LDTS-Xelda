@@ -1,6 +1,7 @@
 package mainFolder;
 
 import mainFolder.gui.LanternaGUI;
+import mainFolder.model.menu.Menu;
 import mainFolder.states.MenuState;
 import mainFolder.states.State;
 
