@@ -1,13 +1,15 @@
-package model.game.labyrinth;
+package mainFolder.model.game.labyrinth;
 
 import com.googlecode.lanterna.TerminalPosition;
 import com.googlecode.lanterna.TerminalSize;
 import com.googlecode.lanterna.TextColor;
 import com.googlecode.lanterna.graphics.TextGraphics;
 import com.googlecode.lanterna.input.KeyStroke;
-import model.game.elements.MainCharacter;
-import model.game.elements.Position;
-import model.game.elements.Wall;
+import mainFolder.model.game.elements.Hero;
+import mainFolder.model.game.elements.Monster;
+import mainFolder.model.game.elements.Wall;
+import mainFolder.model.Position;
+import mainFolder.gui.LanternaGUI;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -16,35 +18,30 @@ public class Labyrinth {
 
     private int width;
     private int height;
-    private MainCharacter mc;
+    private Hero hero;
+
+    private List<Monster> monsters;
+
     private List<Wall> walls;
     private boolean flag = true;
 
     public Labyrinth(int width, int height) {
         this.width = width;
         this.height = height;
-        mc = new MainCharacter(10,10);
+        hero = new Hero(10,10);
         this.walls = createWalls();
-    }
-
-    public void draw(TextGraphics graphics) {
-        graphics.setBackgroundColor(TextColor.Factory.fromString("#222222"));
-        graphics.fillRectangle(new TerminalPosition(0, 0), new TerminalSize(width, height), ' ');
-        for(Wall wall : walls)
-            wall.draw(graphics);
-        mc.draw(graphics);
     }
 
     public int getWidth() {
         return width;
     }
 
-    public void setWidth(int width) {
-        this.width = width;
-    }
-
     public int getHeight() {
         return height;
+    }
+
+    public void setWidth(int width) {
+        this.width = width;
     }
 
     public void setHeight(int height) {
@@ -73,33 +70,7 @@ public class Labyrinth {
 
         return walls;
     }
-
-    public void processKey(KeyStroke key) {
-
-        switch (key.getKeyType()) {
-            case ArrowUp:
-                moveHero(mc.moveUp());
-                break;
-            case ArrowDown:
-                moveHero(mc.moveDown());
-                break;
-            case ArrowLeft:
-                moveHero(mc.moveLeft());
-                break;
-            case ArrowRight:
-                moveHero(mc.moveRight());
-                break;
-            case EOF:
-                setFlag(false);
-                break;
-            case Character:
-                if (key.getCharacter() == 'q') setFlag(false);
-                break;
-        }
-        System.out.println(key);
-    }
-
-    public boolean canHeroMove(Position position) {
+    public boolean canHeroMove(Position position) { //isEmpty do prof
         for(Wall wall : walls) {
             if (wall.getPosition().equals(position))
                 return false;
@@ -107,8 +78,34 @@ public class Labyrinth {
         return true;
     }
 
-    public void moveHero(Position position) {
-        if(canHeroMove(position))
-            mc.setPosition(position);
+    public Hero getHero() {
+        return hero;
+    }
+
+    public void setHero(Hero hero) {
+        this.hero = hero;
+    }
+
+    public List<Monster> getMonsters() {
+        return monsters;
+    }
+
+    public void setMonsters(List<Monster> monsters) {
+        this.monsters = monsters;
+    }
+
+    public List<Wall> getWalls() {
+        return walls;
+    }
+
+    public void setWalls(List<Wall> walls) {
+        this.walls = walls;
+    }
+
+    public boolean isMonster(Position position) {
+        for (Monster monster : monsters)
+            if (monster.getPosition().equals(position))
+                return true;
+        return false;
     }
 }
