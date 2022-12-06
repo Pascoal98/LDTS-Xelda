@@ -6,13 +6,56 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
+
 public class PositionTest {
 
-    Position position;
+    private Position position;
 
     @BeforeEach
     public void helper() {
         this.position = new Position(5, 10);
+    }
+
+    @Test
+    public void getLeft() {
+        Position p = new Position(4, 10);
+        Assertions.assertEquals(p, position.getLeft());
+    }
+
+    @Test
+    public void getRight() {
+        Position p = new Position(6, 10);
+        Assertions.assertEquals(p, position.getRight());
+    }
+
+    @Test
+    public void getUp() {
+        Position p = new Position(5, 9);
+        Assertions.assertEquals(p, position.getUp());
+    }
+
+    @Test
+    public void getDown() {
+        Position p = new Position(5, 11);
+        Assertions.assertEquals(p, position.getDown());
+    }
+
+    @Test
+    public void getRandomNeighbour() {
+        List<Position> positions = Arrays.asList(position.getDown(), position.getUp(), position.getLeft(), position.getRight());
+        Position p = position.getRandomNeighbour();
+        int count = 0;
+        for (Position pos : positions) {
+            if(p.equals(pos)) {
+                count++;
+            }
+        }
+        Assertions.assertNotEquals(p, position);
+        Assertions.assertEquals(1, count);
     }
 
     @Test
@@ -21,26 +64,26 @@ public class PositionTest {
     }
 
     @Test
+    public void setX() {
+        position.setX(2);
+        Assertions.assertEquals(2, position.getX());
+    }
+
+    @Test
     public void getY() {
         Assertions.assertEquals(10, position.getY());
     }
 
     @Test
-    public void setX() {
-        position.setX(20);
-        Assertions.assertEquals(20,position.getX());
-    }
-
-    @Test
     public void setY() {
-        position.setY(2);
-        Assertions.assertEquals(2, position.getY());
+        position.setY(1);
+        Assertions.assertEquals(1, position.getY());
     }
 
     @Test
     public void equalsTrueDiffObject() {
-        Position position2 = new Position(5, 10);
-        Assertions.assertEquals(position, position2);
+        Position p = new Position(5, 10);
+        Assertions.assertEquals(position, p);
     }
 
     @Test
@@ -65,5 +108,14 @@ public class PositionTest {
     public void equalsFalseDiffClass() {
         Wall wall = new Wall(5,10);
         Assertions.assertNotEquals(position, wall);
+    }
+
+    @Test
+    public void test_hashCode() {
+        Position p = new Position(5, 10);
+        Assertions.assertNotSame(position, p);
+        Assertions.assertEquals(position.hashCode(), p.hashCode());
+        Position pos = new Position(30, 40);
+        Assertions.assertNotEquals(position.hashCode(), pos.hashCode());
     }
 }
