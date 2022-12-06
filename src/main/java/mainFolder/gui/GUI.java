@@ -1,11 +1,16 @@
 package mainFolder.gui;
 
 import mainFolder.model.Position;
+import mainFolder.model.game.elements.Door;
 
 import java.io.IOException;
 
 public interface GUI {
     ACTION getNextAction() throws IOException;
+
+    void drawCoin(Position position);
+
+    void drawDoor(Position position);
 
     void drawHero(Position position);
 
