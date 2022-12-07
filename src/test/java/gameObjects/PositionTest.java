@@ -7,9 +7,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import java.util.Arrays;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
 
 public class PositionTest {
 
@@ -111,11 +109,21 @@ public class PositionTest {
     }
 
     @Test
-    public void test_hashCode() {
+    public void test_hashCodeTrue() {
         Position p = new Position(5, 10);
         Assertions.assertNotSame(position, p);
         Assertions.assertEquals(position.hashCode(), p.hashCode());
+    }
+
+    @Test
+    public void test_hashCodeFalse() {
         Position pos = new Position(30, 40);
+        Assertions.assertNotSame(position, pos);
         Assertions.assertNotEquals(position.hashCode(), pos.hashCode());
+    }
+
+    @Test
+    public void test_hashCodeSame() {
+        Assertions.assertEquals(position.hashCode(), position.hashCode());
     }
 }
