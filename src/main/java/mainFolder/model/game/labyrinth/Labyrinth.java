@@ -1,15 +1,10 @@
 package mainFolder.model.game.labyrinth;
 
-import com.googlecode.lanterna.TerminalPosition;
-import com.googlecode.lanterna.TerminalSize;
-import com.googlecode.lanterna.TextColor;
-import com.googlecode.lanterna.graphics.TextGraphics;
-import com.googlecode.lanterna.input.KeyStroke;
+
 import mainFolder.model.game.elements.Hero;
 import mainFolder.model.game.elements.Monster;
 import mainFolder.model.game.elements.Wall;
 import mainFolder.model.Position;
-import mainFolder.gui.LanternaGUI;
 
 import java.util.ArrayList;
 import java.util.List;

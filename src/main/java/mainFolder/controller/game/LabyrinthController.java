@@ -3,7 +3,9 @@ package mainFolder.controller.game;
 import mainFolder.Start;
 import mainFolder.gui.GUI;
 import mainFolder.model.game.labyrinth.Labyrinth;
+import mainFolder.model.menu.BattleMenu;
 import mainFolder.model.menu.Menu;
+import mainFolder.states.BattleState;
 import mainFolder.states.MenuState;
 
 import java.io.IOException;
@@ -23,6 +25,10 @@ public class LabyrinthController extends GameController{
     public void step(Start game, GUI.ACTION action, long time) throws IOException {
         if (action == GUI.ACTION.QUIT || getModel().getHero().getEnergy() == 0)
             game.setState(new MenuState(new Menu()));
+        else
+        if(getModel().getHero().getBattle() == true){
+            game.setState(new BattleState(new BattleMenu()));
+        }
         else {
             heroController.step(game, action, time);
             monsterController.step(game, action, time);
