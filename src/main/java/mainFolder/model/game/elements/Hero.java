@@ -17,12 +17,6 @@ public class Hero extends Element{
         this.health = 10;
         this.max_health = 10;
         this.inventory = new Inventory();
-        Item item1 = new HealthPotion();
-        Item item2 = new ExtraHealthPotion();
-        Item item3 = new HealthPotion();
-        addItem(item1);
-        addItem(item2);
-        addItem(item3);
     }
 
     public void setHealth(int health) {

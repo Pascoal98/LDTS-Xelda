@@ -69,9 +69,7 @@ public class Inventory {
 
     public List<Item> getAllItems() {
         List<Item> it = new ArrayList<>();
-        for(Item i : items) {
-            it.add(i);
-        }
+        it.addAll(items);
         return it;
     }
 

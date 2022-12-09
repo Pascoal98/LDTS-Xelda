@@ -18,7 +18,7 @@ public class InventoryViewer extends Viewer<InventoryMenu> {
         for(int i = 0; i < getModel().getNumberEntries(); i++)
             gui.drawText(
                     new Position(5, 7+i),
-                    getModel().getEntry(i),
+                    getModel().addString(i),
                     getModel().isSelected(i) ? "#FFD700" : "#FFFFFF"
             );
     }
