@@ -1,8 +1,6 @@
 package mainFolder.model.game.labyrinth;
 
-import mainFolder.model.game.elements.Hero;
-import mainFolder.model.game.elements.Monster;
-import mainFolder.model.game.elements.Wall;
+import mainFolder.model.game.elements.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -63,5 +61,24 @@ public class RandomLabyrinthBuilder extends LabyrinthBuilder {
     @Override
     protected Hero createHero() {
         return new Hero(width / 2, height / 2);
+    }
+
+    @Override
+    protected List<Coin> createCoins() {
+        Random random = new Random();
+        ArrayList<Coin> coins = new ArrayList<>();
+        for(int i=0; i<5; i++){
+            Coin newcoin = new Coin(random.nextInt(width-2) + 1,
+                    random.nextInt(height-2)+1);
+            if(!coins.contains(newcoin) && !newcoin.getPosition().equals(Hero.getPosition()))
+                coins.add(newcoin);
+        }
+        return coins;
+    }
+
+    @Override
+    protected List<Door> createDoors() {
+        List<Door> doors = new ArrayList<>();
+        return doors;
     }
 }

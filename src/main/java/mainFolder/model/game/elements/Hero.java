@@ -8,10 +8,12 @@ import mainFolder.model.game.items.Item;
 import javax.swing.plaf.basic.BasicInternalFrameTitlePane;
 import java.util.List;
 
+
 public class Hero extends Element{
     private int max_health;
     private int health;
     private Inventory inventory;
+    private boolean isBattle = false;
     public Hero(int x, int y) {
         super(x, y);
         this.health = 10;
@@ -54,4 +56,10 @@ public class Hero extends Element{
     public List<Item> getItems() {
         return inventory.getAllItems();
     }
+
+    public void initBattle(Boolean bool) {
+        this.isBattle = bool;
+    }
+
+    public boolean getBattle() {return isBattle;}
 }

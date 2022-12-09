@@ -30,7 +30,7 @@ public class HeroController extends GameController{
     private void moveHero(Position position) {
         if (getModel().canHeroMove(position)) {
             getModel().getHero().setPosition(position);
-            if (getModel().isMonster(position)) getModel().getHero().decreaseHealth();
+            if (getModel().isMonster(position)) getModel().getHero().initBattle(true);
         }
     }
 

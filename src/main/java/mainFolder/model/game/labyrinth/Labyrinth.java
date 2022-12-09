@@ -1,13 +1,7 @@
 package mainFolder.model.game.labyrinth;
 
-import com.googlecode.lanterna.TerminalPosition;
-import com.googlecode.lanterna.TerminalSize;
-import com.googlecode.lanterna.TextColor;
-import com.googlecode.lanterna.graphics.TextGraphics;
-import com.googlecode.lanterna.input.KeyStroke;
-import mainFolder.model.game.elements.Hero;
-import mainFolder.model.game.elements.Monster;
-import mainFolder.model.game.elements.Wall;
+
+import mainFolder.model.game.elements.*;
 import mainFolder.model.Position;
 import mainFolder.gui.LanternaGUI;
 import mainFolder.model.game.items.ExtraHealthPotion;
@@ -19,6 +13,9 @@ import java.util.List;
 
 public class Labyrinth {
 
+    private List<Coin> coins;
+
+    private List<Door> doors;
     private int width;
     private int height;
     private Hero hero;
@@ -111,4 +108,8 @@ public class Labyrinth {
                 return true;
         return false;
     }
+    public List<Door> getDoors() {return doors;}
+    public void setDoors(List<Door> doors) {this.doors = doors;}
+    public List<Coin> getCoins(){return coins;}
+    public void setCoins(List<Coin> coins) {this.coins = coins;}
 }
