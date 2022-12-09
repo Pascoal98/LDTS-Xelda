@@ -41,4 +41,8 @@ public class Hero extends Element{
     public void useItem(Item item) {
         inventory.useItem(item);
     }
+
+    public boolean hasItem(Item item) {
+        return inventory.itemInInventory(item);
+    }
 }

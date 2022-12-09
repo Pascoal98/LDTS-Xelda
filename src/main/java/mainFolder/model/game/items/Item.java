@@ -1,5 +1,6 @@
 package mainFolder.model.game.items;
 
+import mainFolder.model.Position;
 import mainFolder.model.game.elements.Hero;
 
 public class Item {
@@ -35,5 +36,12 @@ public class Item {
             return;
         }
         this.quantity--;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if(o == null || o.getClass() != this.getClass()) return false;
+
+        return(this == o || (this.name == ((Item) o).name && this.name == ((Item) o).name));
     }
 }
