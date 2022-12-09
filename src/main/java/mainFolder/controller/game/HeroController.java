@@ -3,11 +3,14 @@ package mainFolder.controller.game;
 import mainFolder.Start;
 import mainFolder.gui.GUI;
 import mainFolder.model.Position;
+import mainFolder.model.game.Inventory;
 import mainFolder.model.game.labyrinth.Labyrinth;
 
 public class HeroController extends GameController{
+    private Inventory inventory;
     public HeroController(Labyrinth labyrinth) {
         super(labyrinth);
+        inventory = new Inventory();
     }
 
     public void moveHeroLeft() {
@@ -29,7 +32,7 @@ public class HeroController extends GameController{
     private void moveHero(Position position) {
         if (getModel().canHeroMove(position)) {
             getModel().getHero().setPosition(position);
-            if (getModel().isMonster(position)) getModel().getHero().decreaseEnergy();
+            if (getModel().isMonster(position)) getModel().getHero().decreaseHealth();
         }
     }
 

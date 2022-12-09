@@ -3,19 +3,21 @@ package mainFolder.model.game.elements;
 import mainFolder.model.game.Inventory;
 
 public class Hero extends Element{
-    private int energy;
+    private int MAX_HEALTH = 10;
+    private int health;
     private Inventory inventory;
     public Hero(int x, int y) {
         super(x, y);
-        this.energy = 10;
+        this.health = 10;
         this.inventory = new Inventory();
     }
 
-    public void decreaseEnergy() {
-        this.energy--;
+    public void decreaseHealth() {
+        this.health--;
     }
 
-    public int getEnergy() {
-        return energy;
+    public int getHealth() {
+        return health;
     }
+
 }

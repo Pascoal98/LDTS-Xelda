@@ -1,22 +1,24 @@
 package mainFolder.states;
 
 import mainFolder.controller.Controller;
+import mainFolder.controller.game.InventoryController;
 import mainFolder.model.game.Inventory;
+import mainFolder.model.menu.InventoryMenu;
 import mainFolder.viewer.Viewer;
-import mainFolder.viewer.menu.InventoryViewer;
+import mainFolder.viewer.game.InventoryViewer;
 
-public class InventoryState extends State<Inventory> {
-    public InventoryState(Inventory inventory) {
-        super(inventory);
+public class InventoryState extends State<InventoryMenu> {
+    public InventoryState(InventoryMenu model) {
+        super(model);
     }
 
     @Override
-    protected Viewer<Inventory> getViewer() {
+    protected Viewer<InventoryMenu> getViewer() {
         return new InventoryViewer(getModel());
     }
 
     @Override
-    protected Controller<Inventory> getController() {
+    protected Controller<InventoryMenu> getController() {
         return new InventoryController(getModel());
     }
 }

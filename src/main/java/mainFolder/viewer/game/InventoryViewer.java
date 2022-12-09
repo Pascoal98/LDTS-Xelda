@@ -2,14 +2,13 @@ package mainFolder.viewer.game;
 
 import mainFolder.gui.GUI;
 import mainFolder.model.Position;
-import mainFolder.model.game.Inventory;
+import mainFolder.model.menu.InventoryMenu;
 import mainFolder.viewer.Viewer;
-import mainFolder.viewer.menu.MenuViewer;
 
-public class InventoryViewer extends Viewer<Inventory> {
+public class InventoryViewer extends Viewer<InventoryMenu> {
 
-    public InventoryViewer(Inventory inventory) {
-        super(inventory);
+    public InventoryViewer(InventoryMenu inventoryMenu) {
+        super(inventoryMenu);
     }
 
     @Override
@@ -19,8 +18,8 @@ public class InventoryViewer extends Viewer<Inventory> {
         for(int i = 0; i < getModel().getNumberEntries(); i++)
             gui.drawText(
                     new Position(5, 7+i),
-                    getModel().getEntry(i);
-                    getModel().isSelected(i) ? "#FFD700" : "FFFFFF"
+                    getModel().getEntry(i),
+                    getModel().isSelected(i) ? "#FFD700" : "#FFFFFF"
             );
     }
 }
