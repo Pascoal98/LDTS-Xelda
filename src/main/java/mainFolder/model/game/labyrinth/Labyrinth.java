@@ -10,6 +10,9 @@ import mainFolder.model.game.elements.Monster;
 import mainFolder.model.game.elements.Wall;
 import mainFolder.model.Position;
 import mainFolder.gui.LanternaGUI;
+import mainFolder.model.game.items.ExtraHealthPotion;
+import mainFolder.model.game.items.HealthPotion;
+import mainFolder.model.game.items.Item;
 
 import java.util.ArrayList;
 import java.util.List;

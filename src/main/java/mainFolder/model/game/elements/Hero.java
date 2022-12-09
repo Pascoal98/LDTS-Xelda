@@ -1,7 +1,12 @@
 package mainFolder.model.game.elements;
 
 import mainFolder.model.game.Inventory;
+import mainFolder.model.game.items.ExtraHealthPotion;
+import mainFolder.model.game.items.HealthPotion;
 import mainFolder.model.game.items.Item;
+
+import javax.swing.plaf.basic.BasicInternalFrameTitlePane;
+import java.util.List;
 
 public class Hero extends Element{
     private int max_health;
@@ -12,10 +17,20 @@ public class Hero extends Element{
         this.health = 10;
         this.max_health = 10;
         this.inventory = new Inventory();
+        Item item1 = new HealthPotion();
+        Item item2 = new ExtraHealthPotion();
+        Item item3 = new HealthPotion();
+        addItem(item1);
+        addItem(item2);
+        addItem(item3);
     }
 
     public void setHealth(int health) {
         this.health = health;
+    }
+
+    public int getHealth() {
+        return health;
     }
 
     public void setMaxHealth(int max_health) {
@@ -23,15 +38,11 @@ public class Hero extends Element{
     }
 
     public int getMaxHealth() {
-        return this.max_health;
+        return max_health;
     }
 
     public void decreaseHealth() {
-        this.health--;
-    }
-
-    public int getHealth() {
-        return this.health;
+        health--;
     }
 
     public void addItem(Item item) {
@@ -44,5 +55,9 @@ public class Hero extends Element{
 
     public boolean hasItem(Item item) {
         return inventory.itemInInventory(item);
+    }
+
+    public List<Item> getItems() {
+        return inventory.getAllItems();
     }
 }

@@ -34,7 +34,17 @@ public class Inventory {
     public void addItem(Item item) {
         if(size >= Inventory.MAX_SIZE)
             return;
+        if(items.contains(item)) {
+            for(Item it : items) {
+                if (it.equals(item)) {
+                    it.incrementsQuantity();
+                    size++;
+                    return;
+                }
+            }
+        }
         items.add(item);
+        item.incrementsQuantity();
         size++;
     }
 
@@ -63,5 +73,13 @@ public class Inventory {
             it.add(i);
         }
         return it;
+    }
+
+    public List<String> getItemsNames() {
+        List<String> names = new ArrayList<>();
+        for(Item item : items) {
+            names.add(item.getName());
+        }
+        return names;
     }
 }

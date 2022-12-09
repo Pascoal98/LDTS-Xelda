@@ -7,10 +7,8 @@ import mainFolder.model.game.Inventory;
 import mainFolder.model.game.labyrinth.Labyrinth;
 
 public class HeroController extends GameController{
-    private Inventory inventory;
     public HeroController(Labyrinth labyrinth) {
         super(labyrinth);
-        inventory = new Inventory();
     }
 
     public void moveHeroLeft() {

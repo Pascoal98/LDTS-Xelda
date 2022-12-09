@@ -15,6 +15,7 @@ public class LabyrinthController extends GameController{
     private final HeroController heroController;
     private final MonsterController monsterController;
 
+
     public LabyrinthController(Labyrinth labyrinth) {
         super(labyrinth);
 
@@ -26,7 +27,7 @@ public class LabyrinthController extends GameController{
         if (action == GUI.ACTION.QUIT || getModel().getHero().getHealth() == 0)
             game.setState(new MenuState(new Menu()));
         else if(action == GUI.ACTION.INVENTORY)
-            game.setState(new InventoryState(new InventoryMenu()));
+            game.setState(new InventoryState(new InventoryMenu(getModel().getHero().getItems())));
         else {
             heroController.step(game, action, time);
             monsterController.step(game, action, time);
