@@ -1,8 +1,6 @@
 package mainFolder.model.game.labyrinth;
 
-import mainFolder.model.game.elements.Hero;
-import mainFolder.model.game.elements.Monster;
-import mainFolder.model.game.elements.Wall;
+import mainFolder.model.game.elements.*;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
@@ -81,4 +79,29 @@ public class LoaderLabyrinthBuilder extends LabyrinthBuilder{
         return null;
     }
 
+    @Override
+    protected List<Coin> createCoins() {
+        List<Coin> coins = new ArrayList<>();
+
+        for (int y = 0; y < lines.size(); y++) {
+            String line = lines.get(y);
+            for (int x = 0; x < line.length(); x++)
+                if (line.charAt(x) == 'c') coins.add(new Coin(x, y));
+        }
+
+        return coins;
+    }
+
+    @Override
+    protected List<Door> createDoors() {
+        List<Door> doors = new ArrayList<>();
+
+        for (int y = 0; y < lines.size(); y++) {
+            String line = lines.get(y);
+            for (int x = 0; x < line.length(); x++)
+                if (line.charAt(x) == '|') doors.add(new Door(x, y));
+        }
+
+        return doors;
+    }
 }

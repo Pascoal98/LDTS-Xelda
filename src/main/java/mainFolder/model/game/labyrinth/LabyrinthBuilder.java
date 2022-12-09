@@ -1,8 +1,6 @@
 package mainFolder.model.game.labyrinth;
 
-import mainFolder.model.game.elements.Hero;
-import mainFolder.model.game.elements.Monster;
-import mainFolder.model.game.elements.Wall;
+import mainFolder.model.game.elements.*;
 
 import java.util.List;
 
@@ -13,6 +11,8 @@ public abstract class LabyrinthBuilder {
         labyrinth.setHero(createHero());
         labyrinth.setMonsters(createMonsters());
         labyrinth.setWalls(createWalls());
+        labyrinth.setCoins(createCoins());
+        labyrinth.setDoors(createDoors());
 
         return labyrinth;
     }
@@ -26,5 +26,9 @@ public abstract class LabyrinthBuilder {
     protected abstract List<Monster> createMonsters();
 
     protected abstract Hero createHero();
+
+    protected abstract List<Coin> createCoins();
+
+    protected abstract List<Door> createDoors();
 }
 
