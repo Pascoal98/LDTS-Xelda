@@ -3,6 +3,7 @@ package mainFolder.controller.game;
 import mainFolder.Start;
 import mainFolder.gui.GUI;
 import mainFolder.model.Position;
+import mainFolder.model.game.Inventory;
 import mainFolder.model.game.labyrinth.Labyrinth;
 
 public class HeroController extends GameController{

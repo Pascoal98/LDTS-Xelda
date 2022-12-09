@@ -1,21 +1,60 @@
 package mainFolder.model.game.elements;
 
+import mainFolder.model.game.Inventory;
+import mainFolder.model.game.items.ExtraHealthPotion;
+import mainFolder.model.game.items.HealthPotion;
+import mainFolder.model.game.items.Item;
+
+import javax.swing.plaf.basic.BasicInternalFrameTitlePane;
+import java.util.List;
+
+
 public class Hero extends Element{
-    private int energy;
-
+    private int max_health;
+    private int health;
+    private Inventory inventory;
     private boolean isBattle = false;
-
     public Hero(int x, int y) {
         super(x, y);
-        this.energy = 10;
+        this.health = 10;
+        this.max_health = 10;
+        this.inventory = new Inventory();
     }
 
-    public void decreaseEnergy() {
-        this.energy--;
+    public void setHealth(int health) {
+        this.health = health;
     }
 
-    public int getEnergy() {
-        return energy;
+    public int getHealth() {
+        return health;
+    }
+
+    public void setMaxHealth(int max_health) {
+        this.max_health = max_health;
+    }
+
+    public int getMaxHealth() {
+        return max_health;
+    }
+
+    public void decreaseHealth() {
+        health--;
+    }
+
+    public void addItem(Item item) {
+        inventory.addItem(item);
+    }
+
+    public void useItem(Item item) {
+        inventory.useItem(item);
+    }
+
+    public boolean hasItem(Item item) {
+        return inventory.itemInInventory(item);
+    }
+
+    public List<Item> getItems() {
+        return inventory.getAllItems();
     }
 
     public void initBattle(Boolean bool) {
