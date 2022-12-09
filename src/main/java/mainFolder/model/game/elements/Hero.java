@@ -4,12 +4,13 @@ import mainFolder.model.game.Inventory;
 import mainFolder.model.game.items.Item;
 
 public class Hero extends Element{
-    private int MAX_HEALTH = 10;
+    private int max_health;
     private int health;
     private Inventory inventory;
     public Hero(int x, int y) {
         super(x, y);
         this.health = 10;
+        this.max_health = 10;
         this.inventory = new Inventory();
     }
 
@@ -17,11 +18,12 @@ public class Hero extends Element{
         this.health = health;
     }
 
-    public static int setMaxHealth() {
-
+    public void setMaxHealth(int max_health) {
+        this.max_health = max_health;
     }
+
     public int getMaxHealth() {
-        return max;
+        return this.max_health;
     }
 
     public void decreaseHealth() {
@@ -29,7 +31,7 @@ public class Hero extends Element{
     }
 
     public int getHealth() {
-        return health;
+        return this.health;
     }
 
     public void addItem(Item item) {
