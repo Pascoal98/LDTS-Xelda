@@ -1,25 +1,21 @@
 package mainFolder.states;
 
-
 import mainFolder.controller.Controller;
-import mainFolder.controller.game.BattleController;
-import mainFolder.model.menu.BattleMenu;
+import mainFolder.model.game.battle.Battle;
 import mainFolder.viewer.Viewer;
-import mainFolder.viewer.game.BattleViewer;
 
-public class BattleState extends State<BattleMenu>{
+public class BattleState extends State<Battle> {
 
-    public BattleState(BattleMenu model) {
-        super(model);
+    public BattleState(Battle battle) {
+        super(battle);
+    }
+    @Override
+    protected Viewer<Battle> getViewer() {
+        return null;
     }
 
     @Override
-    protected Viewer<BattleMenu> getViewer() {
-        return new BattleViewer(getModel());
-    }
-
-    @Override
-    protected Controller<BattleMenu> getController() {
-        return new BattleController(getModel());
+    protected Controller<Battle> getController() {
+        return null;
     }
 }

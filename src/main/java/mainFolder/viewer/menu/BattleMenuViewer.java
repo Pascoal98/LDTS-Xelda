@@ -1,4 +1,4 @@
-package mainFolder.viewer.game;
+package mainFolder.viewer.menu;
 
 import mainFolder.gui.GUI;
 import mainFolder.model.Position;
@@ -6,9 +6,9 @@ import mainFolder.model.menu.BattleMenu;
 import mainFolder.viewer.Viewer;
 
 
-public class BattleViewer extends Viewer<BattleMenu> {
+public class BattleMenuViewer extends Viewer<BattleMenu> {
 
-    public BattleViewer(BattleMenu battleMenu) {
+    public BattleMenuViewer(BattleMenu battleMenu) {
         super(battleMenu);
     }
     @Override

@@ -5,8 +5,10 @@ import mainFolder.model.game.elements.*;
 import java.util.List;
 
 public abstract class LabyrinthBuilder {
+
+    Labyrinth labyrinth;
     public Labyrinth createLabyrinth() {
-        Labyrinth labyrinth = new Labyrinth(getWidth(), getHeight());
+        labyrinth = new Labyrinth(getWidth(), getHeight());
 
         labyrinth.setHero(createHero());
         labyrinth.setMonsters(createMonsters());
@@ -15,6 +17,25 @@ public abstract class LabyrinthBuilder {
         labyrinth.setDoors(createDoors());
 
         return labyrinth;
+    }
+
+    public Labyrinth load() {
+
+        labyrinth.setHero(labyrinth.getHero());
+        labyrinth.setMonsters(labyrinth.getMonsters());
+        labyrinth.setWalls(labyrinth.getWalls());
+        labyrinth.setCoins(labyrinth.getCoins());
+        labyrinth.setDoors(labyrinth.getDoors());
+
+        return labyrinth;
+    }
+
+    public Labyrinth getLabyrinth() {
+        return labyrinth;
+    }
+
+    public void setLabyrinth(Labyrinth labyrinth) {
+        this.labyrinth = labyrinth;
     }
 
     protected abstract int getWidth();
