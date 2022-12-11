@@ -4,14 +4,14 @@ import mainFolder.Start;
 import mainFolder.controller.Controller;
 import mainFolder.gui.GUI;
 import mainFolder.model.game.labyrinth.LoaderLabyrinthBuilder;
-import mainFolder.model.menu.Menu;
+import mainFolder.model.menu.MainMenu;
 import mainFolder.states.GameState;
 
 import java.io.IOException;
 
-public class MenuController extends Controller<Menu> {
+public class MenuController extends Controller<MainMenu> {
 
-    public MenuController(Menu menu) {
+    public MenuController(MainMenu menu) {
         super(menu);
     }
 

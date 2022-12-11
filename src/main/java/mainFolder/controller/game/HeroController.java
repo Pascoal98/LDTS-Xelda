@@ -31,6 +31,10 @@ public class HeroController extends GameController{
         if (getModel().canHeroMove(position)) {
             getModel().getHero().setPosition(position);
             if (getModel().isMonster(position)) getModel().getHero().initBattle(true);
+            if(getModel().isCoins(position)) {
+                getModel().getHero().addScore();
+                getModel().collectCoins(position);
+            }
         }
     }
 

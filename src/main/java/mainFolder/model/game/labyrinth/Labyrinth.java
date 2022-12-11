@@ -112,4 +112,21 @@ public class Labyrinth {
     public void setDoors(List<Door> doors) {this.doors = doors;}
     public List<Coin> getCoins(){return coins;}
     public void setCoins(List<Coin> coins) {this.coins = coins;}
+
+    public boolean isCoins(Position position){
+        for(Coin coin: coins){
+            if (coin.getPosition().equals(position)) return true;
+        }
+        return false;
+    }
+
+    public List<Coin> collectCoins(Position position) {
+        for (Coin coin : coins) {
+            if (coin.getPosition().equals(position)) {
+                coins.remove(coin);
+                break;
+            }
+        }
+        return coins;
+    }
 }

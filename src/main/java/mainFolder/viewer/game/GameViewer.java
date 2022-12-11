@@ -18,8 +18,10 @@ public class GameViewer extends Viewer<Labyrinth> {
         drawElements(gui, getModel().getWalls(), new WallViewer());
         drawElements(gui, getModel().getMonsters(), new MonsterViewer());
         drawElement(gui, getModel().getHero(), new HeroViewer());
+        drawElements(gui,getModel().getCoins(),new CoinViewer());
 
         gui.drawText(new Position(0, 0), "Lives: " + getModel().getHero().getHealth(), "#FFFFFF");
+        gui.drawText(new Position(10,0),"Score: " + getModel().getHero().getScore(),"#FFFFFF");
     }
 
     private <T extends Element> void drawElements(GUI gui, List<T> elements, ElementViewer<T> viewer) {

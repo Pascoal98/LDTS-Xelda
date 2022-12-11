@@ -2,11 +2,11 @@ package mainFolder.viewer.menu;
 
 import mainFolder.gui.GUI;
 import mainFolder.model.Position;
-import mainFolder.model.menu.Menu;
+import mainFolder.model.menu.MainMenu;
 import mainFolder.viewer.Viewer;
 
-public class MenuViewer extends Viewer<Menu> {
-    public MenuViewer(Menu menu) {
+public class MenuViewer extends Viewer<MainMenu> {
+    public MenuViewer(MainMenu menu) {
         super(menu);
     }
 

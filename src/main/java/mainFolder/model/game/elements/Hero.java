@@ -12,6 +12,8 @@ import java.util.List;
 public class Hero extends Element{
     private int max_health;
     private int health;
+    private int energy;
+    private int score;
     private Inventory inventory;
     private boolean isBattle = false;
     public Hero(int x, int y) {
@@ -62,4 +64,12 @@ public class Hero extends Element{
     }
 
     public boolean getBattle() {return isBattle;}
+
+    public void addScore(){ this.score += 10; }
+
+    public int getScore(){return score;}
+
+    public void decreaseEnergy() {
+        this.energy --;
+    }
 }

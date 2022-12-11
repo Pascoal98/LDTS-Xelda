@@ -1,19 +1,55 @@
 package mainFolder.model.menu;
 
-import mainFolder.model.OptionSelector;
+import mainFolder.model.Position;
 
-import java.util.Arrays;
+import java.util.List;
 
-public class Menu extends OptionSelector {
-    public Menu() {
-        super(Arrays.asList("Start", "Exit"));
+public abstract class Menu {
+    private List<Position> Yellow;
+    private List<Position> Green;
+    private List<Position> Blue;
+    private List<Position> Brown;
+
+    private List<Position> Border;
+    private final List<String> entries;
+    private int currentEntry = 0;
+
+    public Menu (List<String> entries) {this.entries = entries;}
+
+    public void nextEntry() {
+        currentEntry++;
+        if (currentEntry > this.entries.size() - 1)
+            currentEntry = 0;
     }
 
-    public boolean isSelectedExit() {
-        return isSelected(1);
+    public void previousEntry() {
+        currentEntry--;
+        if (currentEntry < 0)
+            currentEntry = this.entries.size() - 1;
     }
 
-    public boolean isSelectedStart() {
-        return isSelected(0);
+    public String getEntry(int i) {
+        return entries.get(i);
     }
+
+    public boolean isSelected(int i) {
+        return currentEntry == i;
+    }
+
+    public int getNumberEntries() {
+        return entries.size();
+    }
+
+    public List<Position> getYellow() {return Yellow;}
+    public List<Position> getGreen() {return Green;}
+    public List<Position> getBlue() {return Blue;}
+    public List<Position> getBrown() {return Brown;}
+    public List<Position> getBorder() {return Border;}
+
+    public void setYellow(List<Position> Yellow) {this.Yellow = Yellow;}
+    public void setGreen(List<Position> Green) {this.Green = Green;}
+    public void setBlue(List<Position> Blue) {this.Blue = Blue;}
+    public void setBrown(List<Position> Brown) {this.Brown = Brown;}
+    public void setBorder(List<Position> Border) {this.Border = Border;}
+
 }

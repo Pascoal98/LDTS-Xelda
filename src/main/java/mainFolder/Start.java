@@ -1,7 +1,7 @@
 package mainFolder;
 
 import mainFolder.gui.LanternaGUI;
-import mainFolder.model.menu.Menu;
+import mainFolder.model.menu.MainMenu;
 import mainFolder.states.MenuState;
 import mainFolder.states.State;
 
@@ -15,7 +15,7 @@ public class Start {
 
     public Start() throws FontFormatException, IOException, URISyntaxException {
         this.gui = new LanternaGUI(30, 20);
-        this.state = new MenuState(new Menu());
+        this.state = new MenuState(new MainMenu());
     }
 
     public static void main(String[] args) throws IOException, FontFormatException, URISyntaxException {

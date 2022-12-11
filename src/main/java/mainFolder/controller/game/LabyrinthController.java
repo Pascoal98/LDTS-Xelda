@@ -4,11 +4,8 @@ import mainFolder.Start;
 import mainFolder.gui.GUI;
 import mainFolder.model.game.labyrinth.Labyrinth;
 import mainFolder.model.menu.InventoryMenu;
-import mainFolder.model.menu.Menu;
+import mainFolder.model.menu.MainMenu;
 import mainFolder.states.InventoryState;
-import mainFolder.model.menu.BattleMenu;
-import mainFolder.model.menu.Menu;
-import mainFolder.states.BattleState;
 import mainFolder.states.MenuState;
 
 import java.io.IOException;
@@ -28,7 +25,7 @@ public class LabyrinthController extends GameController{
 
     public void step(Start game, GUI.ACTION action, long time) throws IOException {
         if (action == GUI.ACTION.QUIT || getModel().getHero().getHealth() == 0)
-            game.setState(new MenuState(new Menu()));
+            game.setState(new MenuState(new MainMenu()));
         else if(action == GUI.ACTION.INVENTORY)
             game.setState(new InventoryState(new InventoryMenu(getModel().getHero().getItems())));
         else {

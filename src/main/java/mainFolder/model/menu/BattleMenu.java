@@ -1,10 +1,8 @@
 package mainFolder.model.menu;
 
-import mainFolder.model.OptionSelector;
-
 import java.util.Arrays;
 
-public class BattleMenu extends OptionSelector {
+public class BattleMenu extends Menu {
 
     public BattleMenu() {
         super(Arrays.asList("Rock", "Paper", "Scissors"));
