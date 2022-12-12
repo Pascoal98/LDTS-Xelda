@@ -20,6 +20,7 @@ public class Labyrinth {
     private int height;
     private Hero hero;
 
+    private Shop shop;
     private List<Monster> monsters;
 
     private List<Wall> walls;
@@ -30,6 +31,15 @@ public class Labyrinth {
         this.height = height;
         hero = new Hero(10,10);
         this.walls = createWalls();
+        shop = new Shop(5,5);
+    }
+
+    public Shop getShop() {
+        return shop;
+    }
+
+    public void setShop(Shop shop) {
+        this.shop = shop;
     }
 
     public int getWidth() {

@@ -26,6 +26,7 @@ public abstract class LabyrinthBuilder {
         labyrinth.setWalls(labyrinth.getWalls());
         labyrinth.setCoins(labyrinth.getCoins());
         labyrinth.setDoors(labyrinth.getDoors());
+        labyrinth.setShop(labyrinth.getShop());
 
         return labyrinth;
     }
