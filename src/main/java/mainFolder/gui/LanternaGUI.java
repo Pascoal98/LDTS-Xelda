@@ -1,5 +1,6 @@
 package mainFolder.gui;
 
+import com.googlecode.lanterna.TerminalPosition;
 import com.googlecode.lanterna.TerminalSize;
 import com.googlecode.lanterna.TextColor;
 import com.googlecode.lanterna.graphics.TextGraphics;
@@ -17,6 +18,7 @@ import java.io.File;
 import java.io.IOException;
 import java.net.URISyntaxException;
 import java.net.URL;
+import java.util.List;
 
 public class LanternaGUI implements GUI {
     private final Screen screen;
@@ -128,6 +130,36 @@ public class LanternaGUI implements GUI {
     @Override
     public void close() throws IOException {
         screen.close();
+    }
+
+    @Override
+    public void drawBorder(List<Position> border) {
+        for(Position position: border){
+            drawWall(position);
+        }
+    }
+
+    @Override
+    public void drawBackground() {
+        TextGraphics tg = screen.newTextGraphics();
+        tg.setBackgroundColor(TextColor.Factory.fromString("#055E00"));
+        tg.fillRectangle(new TerminalPosition(0,0), new TerminalSize(31,31),' ');
+    }
+
+    @Override
+    public void drawXeldaMenu(java.util.List<Position> yellow, java.util.List<Position> green, java.util.List<Position> blue, List<Position> brown){
+        for(Position position: yellow){
+            drawText(position, "-", "#FFFF00");
+        }
+        for(Position position: blue){
+            drawText(position, "$", "#00B9CC");
+        }
+        for(Position position: green){
+            drawText(position, "@", "#A7FFAC");
+        }
+        for(Position position: brown){
+            drawText(position, "#", "#AC6800");
+        }
     }
 }
 

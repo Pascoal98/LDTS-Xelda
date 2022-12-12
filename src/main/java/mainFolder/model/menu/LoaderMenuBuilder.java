@@ -26,8 +26,8 @@ public class LoaderMenuBuilder extends MenuBuilder{
         for (int y = 0; y< lines.size();y++){
             String line = lines.get(y);
             for(int x = 0; x<line.length();x++){
-                if (line.charAt(x) = "&")
-                    Yellow.add(new Position(x,y))
+                if (line.charAt(x) == '-')
+                    Yellow.add(new Position(x,y));
             }
         }
         return Yellow;
@@ -37,7 +37,7 @@ public class LoaderMenuBuilder extends MenuBuilder{
         for (int y = 0; y< lines.size();y++){
             String line = lines.get(y);
             for(int x = 0; x<line.length();x++){
-                if (line.charAt(x) = "$")
+                if (line.charAt(x) == '$')
                     Blue.add(new Position(x,y));
             }
         }
@@ -48,8 +48,8 @@ public class LoaderMenuBuilder extends MenuBuilder{
         for (int y = 0; y< lines.size();y++){
             String line = lines.get(y);
             for(int x = 0; x<line.length();x++){
-                if (line.charAt(x) = "@")
-                    Green.add(new Position(x,y))
+                if (line.charAt(x) == '@')
+                    Green.add(new Position(x,y));
             }
         }
         return Green;
@@ -59,8 +59,8 @@ public class LoaderMenuBuilder extends MenuBuilder{
         for (int y = 0; y< lines.size();y++){
             String line = lines.get(y);
             for(int x = 0; x<line.length();x++){
-                if (line.charAt(x) = "%")
-                    Brown.add(new Position(x,y))
+                if (line.charAt(x) == '#')
+                    Brown.add(new Position(x,y));
             }
         }
         return Brown;
@@ -70,8 +70,8 @@ public class LoaderMenuBuilder extends MenuBuilder{
         for (int y = 0; y< lines.size();y++){
             String line = lines.get(y);
             for(int x = 0; x<line.length();x++){
-                if (line.charAt(x) = "")
-                    Yellow.add(new Position(x,y))
+                if (line.charAt(x) == '*')
+                    Yellow.add(new Position(x,y));
             }
         }
         return Yellow;
