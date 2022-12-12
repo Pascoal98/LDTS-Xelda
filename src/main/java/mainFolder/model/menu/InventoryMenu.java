@@ -66,7 +66,7 @@ public class InventoryMenu {
         return entries.get(currentEntry).equals("Health Potion");
     }
 
-    public boolean isSelectedExtraHealth() {
+    public boolean isSelectedExtraHealthPotion() {
         return entries.get(currentEntry).equals("Extra Health Potion");
     }
 
