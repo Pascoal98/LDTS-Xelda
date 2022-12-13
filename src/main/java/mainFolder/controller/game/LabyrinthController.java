@@ -5,8 +5,10 @@ import mainFolder.gui.GUI;
 import mainFolder.model.game.labyrinth.Labyrinth;
 import mainFolder.model.menu.InventoryMenu;
 import mainFolder.model.menu.MainMenu;
+import mainFolder.model.menu.ShopMenu;
 import mainFolder.states.InventoryState;
 import mainFolder.states.MenuState;
+import mainFolder.states.ShopState;
 
 import java.io.IOException;
 
@@ -28,6 +30,10 @@ public class LabyrinthController extends GameController{
             game.setState(new MenuState(new MainMenu()));
         else if(action == GUI.ACTION.INVENTORY)
             game.setState(new InventoryState(new InventoryMenu(getModel().getHero().getItems())));
+        else if(action == GUI.ACTION.SHOP) {
+            if(getModel().inRangeShop())
+                game.setState(new ShopState(new ShopMenu(getModel().getShop().getShop())));
+        }
         else {
             heroController.step(game, action, time);
             monsterController.step(game, action, time);

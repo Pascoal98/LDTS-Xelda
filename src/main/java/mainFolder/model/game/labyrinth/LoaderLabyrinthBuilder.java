@@ -104,4 +104,14 @@ public class LoaderLabyrinthBuilder extends LabyrinthBuilder{
 
         return doors;
     }
+
+    @Override
+    protected Shop createShop() {
+        for (int y = 0; y < lines.size(); y++) {
+            String line = lines.get(y);
+            for (int x = 0; x < line.length(); x++)
+                if (line.charAt(x) == 'S') return new Shop(x, y);
+        }
+        return null;
+    }
 }

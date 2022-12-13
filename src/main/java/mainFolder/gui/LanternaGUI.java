@@ -81,6 +81,9 @@ public class LanternaGUI implements GUI {
         if(keyStroke.getKeyType() == KeyType.Character && (keyStroke.getCharacter() == 'i' || keyStroke.getCharacter() == 'I'))
             return ACTION.INVENTORY;
 
+        if(keyStroke.getKeyType() == KeyType.Character && (keyStroke.getCharacter() == 'p' || keyStroke.getCharacter() == 'P'))
+            return ACTION.SHOP;
+
         if (keyStroke.getKeyType() == KeyType.Enter) return ACTION.SELECT;
         return ACTION.NONE;
     }
@@ -103,6 +106,10 @@ public class LanternaGUI implements GUI {
     public void drawDoor(Position position) {drawCharacter(position.getX(), position.getY(), '|',"#BFBFBF");}
 
     public void drawCoin(Position position) {drawCharacter(position.getX(), position.getY(), 'c',"#FFC900");}
+
+    public void drawShop(Position position) {
+        drawCharacter(position.getX(), position.getY(), 'S', "#A020F0");
+    }
 
     @Override
     public void drawText(Position position, String text, String color) {
