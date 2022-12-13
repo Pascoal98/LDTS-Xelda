@@ -92,6 +92,12 @@ public class Labyrinth {
         return hero;
     }
 
+    public boolean inRangeShop() {
+        int distanceX = hero.getPosition().getX() - shop.getPosition().getX();
+        int distanceY = hero.getPosition().getY() - shop.getPosition().getY();
+        double totalDistance = Math.sqrt(Math.pow(distanceX,2) + Math.pow(distanceY, 2));
+        return totalDistance <= 1;
+    }
     public void setHero(Hero hero) {
         this.hero = hero;
     }
