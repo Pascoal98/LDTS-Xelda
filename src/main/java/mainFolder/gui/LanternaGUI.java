@@ -107,6 +107,10 @@ public class LanternaGUI implements GUI {
 
     public void drawCoin(Position position) {drawCharacter(position.getX(), position.getY(), 'c',"#FFC900");}
 
+    public void drawShop(Position position) {
+        drawCharacter(position.getX(), position.getY(), 'S', "#A020F0");
+    }
+
     @Override
     public void drawText(Position position, String text, String color) {
         TextGraphics tg = screen.newTextGraphics();

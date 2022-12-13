@@ -29,6 +29,6 @@ public class ShopMenu extends Menu {
     public String addString(int i) {
         if(i == getNumberEntries() - 1)
             return getEntry(i);
-        return getEntry(i) + "(" + shop.get(getEntry(i)) + "g)";
+        return getEntry(i) + "(" + shop.get(getEntry(i)) + "c)";
     }
 }
