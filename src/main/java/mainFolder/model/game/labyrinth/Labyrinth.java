@@ -85,7 +85,7 @@ public class Labyrinth {
             if (wall.getPosition().equals(position))
                 return false;
         }
-        return true;
+        return !shop.getPosition().equals(position);
     }
 
     public Hero getHero() {
