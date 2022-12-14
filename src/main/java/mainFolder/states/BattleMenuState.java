@@ -2,8 +2,8 @@ package mainFolder.states;
 
 
 import mainFolder.controller.Controller;
-import mainFolder.controller.menu.BattleMenuController;
-import mainFolder.model.menu.BattleMenu;
+import mainFolder.controller.game.BattleMenuController;
+import mainFolder.model.game.battle.BattleMenu;
 import mainFolder.viewer.Viewer;
 import mainFolder.viewer.menu.BattleMenuViewer;
 

@@ -1,7 +1,5 @@
 package mainFolder.model.menu;
 
-import mainFolder.model.game.items.Item;
-
 import java.util.Arrays;
 import java.util.HashMap;
 

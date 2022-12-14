@@ -4,13 +4,17 @@ import com.googlecode.lanterna.graphics.TextGraphics;
 
 public class Monster extends Element {
 
-    private int energy;
+    private int health;
     public Monster(int x, int y) {
         super(x, y);
-        this.energy = 5;
+        this.health = 1;
     }
 
-    public void decreaseEnergy() {
-        this.energy--;
+    public void decreaseHealth() {
+        this.health--;
+    }
+
+    public int getHealth() {
+        return health;
     }
 }

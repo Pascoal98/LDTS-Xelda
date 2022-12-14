@@ -4,10 +4,8 @@ import mainFolder.Start;
 import mainFolder.gui.GUI;
 import mainFolder.model.game.labyrinth.Labyrinth;
 import mainFolder.model.menu.*;
-import mainFolder.states.GameOverMenuState;
-import mainFolder.states.InventoryState;
-import mainFolder.states.MenuState;
-import mainFolder.states.ShopState;
+import mainFolder.model.game.battle.BattleMenu;
+import mainFolder.states.*;
 
 import java.io.IOException;
 
@@ -34,6 +32,9 @@ public class LabyrinthController extends GameController{
         else if(action == GUI.ACTION.SHOP) {
             if(getModel().inRangeShop())
                 game.setState(new ShopState(new ShopMenu(getModel().getShop().getShop())));
+        }
+        else if(getModel().getHero().getBattle()) {
+                game.setState(new BattleMenuState(new BattleMenu(getModel().getHero(), getModel().getMonster(getModel().getHero().getPosition()))));
         }
         else {
             heroController.step(game, action, time);
