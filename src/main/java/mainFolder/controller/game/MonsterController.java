@@ -29,8 +29,10 @@ public class MonsterController extends GameController {
     private void moveMonster(Monster monster, Position position) {
         if (getModel().canHeroMove(position)) {
             monster.setPosition(position);
-            if (getModel().getHero().getPosition().equals(position))
-                getModel().getHero().decreaseHealth();
+            if (getModel().getHero().getPosition().equals(position)) {
+                getModel().getHero().initBattle(true);
+                getModel().createBattle(getModel().getHero(), monster);
+            }
         }
     }
 }

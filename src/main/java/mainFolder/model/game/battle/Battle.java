@@ -9,16 +9,29 @@ import java.util.Random;
 
 public class Battle {
 
-    Hero hero;
-    Monster monster;
-    String move;
-    final List<String> moves = Arrays.asList("Rock", "Paper", "Scissors");
+    public Hero hero;
+    public Monster monster;
 
-    public Battle() {
-
+    public Battle(Hero hero, Monster monster) {
+        this.hero = hero;
+        this.monster = monster;
     }
 
-    public int randomMove() {
-        return new Random().nextInt(moves.size());
+
+    public Hero getHero() {
+        return hero;
     }
+
+    public void setHero(Hero hero) {
+        this.hero = hero;
+    }
+
+    public Monster getMonster() {
+        return monster;
+    }
+
+    public void setMonster(Monster monster) {
+        this.monster = monster;
+    }
+
 }

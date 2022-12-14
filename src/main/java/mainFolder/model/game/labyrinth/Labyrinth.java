@@ -1,12 +1,9 @@
 package mainFolder.model.game.labyrinth;
 
 
+import mainFolder.model.game.battle.Battle;
 import mainFolder.model.game.elements.*;
 import mainFolder.model.Position;
-import mainFolder.gui.LanternaGUI;
-import mainFolder.model.game.items.ExtraHealthPotion;
-import mainFolder.model.game.items.HealthPotion;
-import mainFolder.model.game.items.Item;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -23,9 +20,9 @@ public class Labyrinth {
     private Shop shop;
     private List<Monster> monsters;
 
-    private List<Wall> walls;
-    private boolean flag = true;
+    private Battle battle;
 
+    private List<Wall> walls;
     public Labyrinth(int width, int height) {
         this.width = width;
         this.height = height;
@@ -58,13 +55,6 @@ public class Labyrinth {
         this.height = height;
     }
 
-    public boolean getFlag() {
-        return flag;
-    }
-
-    public void setFlag(boolean flag) {
-        this.flag = flag;
-    }
 
     private List<Wall> createWalls() {
         List<Wall> walls = new ArrayList<>();
@@ -124,6 +114,19 @@ public class Labyrinth {
                 return true;
         return false;
     }
+
+    public Monster getMonster(Position position) {
+        for (Monster monster : monsters)
+            if (monster.getPosition().equals(position))
+                return monster;
+        return null;
+    }
+
+    public void removeMonster(Position position) {
+        for(Monster monster : monsters)
+            if (monster.getPosition().equals(position))
+                monsters.remove(monster);
+    }
     public List<Door> getDoors() {return doors;}
     public void setDoors(List<Door> doors) {this.doors = doors;}
     public List<Coin> getCoins(){return coins;}
@@ -144,5 +147,9 @@ public class Labyrinth {
             }
         }
         return coins;
+    }
+
+    public void createBattle(Hero hero, Monster monster) {
+        this.battle = new Battle(hero, monster);
     }
 }

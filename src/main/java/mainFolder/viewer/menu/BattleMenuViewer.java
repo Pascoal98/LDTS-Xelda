@@ -2,7 +2,7 @@ package mainFolder.viewer.menu;
 
 import mainFolder.gui.GUI;
 import mainFolder.model.Position;
-import mainFolder.model.menu.BattleMenu;
+import mainFolder.model.game.battle.BattleMenu;
 import mainFolder.viewer.Viewer;
 
 

@@ -1,6 +1,7 @@
 package mainFolder.model.game.elements;
 
 import mainFolder.model.game.Inventory;
+import mainFolder.model.game.battle.Battle;
 import mainFolder.model.game.items.ExtraHealthPotion;
 import mainFolder.model.game.items.HealthPotion;
 import mainFolder.model.game.items.Item;
@@ -12,7 +13,6 @@ import java.util.List;
 public class Hero extends Element{
     private int max_health;
     private int health;
-    private int energy;
     private int score;
     private Inventory inventory;
     private boolean isBattle = false;
@@ -69,7 +69,4 @@ public class Hero extends Element{
 
     public int getScore(){return score;}
 
-    public void decreaseEnergy() {
-        this.energy --;
-    }
 }
