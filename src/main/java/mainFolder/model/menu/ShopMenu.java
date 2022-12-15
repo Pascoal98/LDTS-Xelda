@@ -30,11 +30,25 @@ public class ShopMenu extends Menu {
     }
 
     public void buyHealthPotion() {
-        if(hero.getScore() < shop.get("Health Potion"))
-            return;
-        Item item = new HealthPotion();
-        hero.addItem(item);
-        hero.setScore(hero.getScore() - shop.get("Health Potion"));
+        boolean hasCoins = hero.getScore() >= shop.get("Health Potion");
+        boolean inventoryHasSpace = hero.inventoryHasSpace();
+
+        if(hasCoins && inventoryHasSpace) {
+            Item item = new HealthPotion();
+            hero.addItem(item);
+            hero.setScore(hero.getScore() - shop.get("Health Potion"));
+        }
+    }
+
+    public void buyExtraHealthPotion() {
+        boolean hasCoins = hero.getScore() >= shop.get("Extra Health Potion");
+        boolean inventoryHasSpace = hero.inventoryHasSpace();
+
+        if(hasCoins && inventoryHasSpace) {
+            Item item = new ExtraHealthPotion();
+            hero.addItem(item);
+            hero.setScore(hero.getScore() - shop.get("Extra Health Potion"));
+        }
     }
 
     public boolean isSelectedExtraHealthPotion() {

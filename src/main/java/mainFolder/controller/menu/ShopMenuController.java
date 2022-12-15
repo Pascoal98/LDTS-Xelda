@@ -31,7 +31,10 @@ public class ShopMenuController extends Controller<ShopMenu> {
                     getModel().buyHealthPotion();
                     game.setState(new GameState(getModel().getLabyrinth()));
                 }
-                if(getModel().isSelectedExtraHealthPotion()) game.setState(new GameState(new LoaderLabyrinthBuilder(1).createLabyrinth()));
+                if(getModel().isSelectedExtraHealthPotion()) {
+                    getModel().buyExtraHealthPotion();
+                    game.setState(new GameState(getModel().getLabyrinth()));
+                }
                 if(getModel().isSelectedExit()) game.setState(new GameState(getModel().getLabyrinth()));
         }
 

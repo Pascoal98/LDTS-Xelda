@@ -73,4 +73,8 @@ public class Hero extends Element{
         this.score = score;
     }
 
+    public boolean inventoryHasSpace() {
+        return inventory.hasSpace();
+    }
+
 }
