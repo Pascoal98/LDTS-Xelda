@@ -101,4 +101,8 @@ public class InventoryMenu {
         }
         return (getEntry(i) + "(" + getEntryQuantity(i) + ")");
     }
+
+    public String stringInventorySpace() {
+        return "Space:" + labyrinth.getHero().getInventorySize() + "/" + labyrinth.getHero().getInventoryMaxSize();
+    }
 }

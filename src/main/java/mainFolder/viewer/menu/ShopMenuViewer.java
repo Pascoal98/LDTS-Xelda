@@ -15,6 +15,7 @@ public class ShopMenuViewer extends Viewer<ShopMenu> {
         gui.drawText(new Position(5,2), "Shop", "#FFFFFF");
         gui.drawText(new Position(5,4), getModel().stringCoins(), "#FFFFFF");
         gui.drawText(new Position(5,5), getModel().stringInventorySpace(), "#FFFFFF");
+
         for(int i = 0; i < getModel().getNumberEntries(); i++) {
             gui.drawText(
                     new Position(5,7+i),

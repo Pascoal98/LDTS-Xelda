@@ -68,8 +68,8 @@ public class Inventory {
         it.useItem();
         if(it.getQuantity() == 1) {
             this.items.remove(it);
-            this.size--;
         }
+        this.size--;
         it.setQuantity(it.getQuantity()-1);
     }
 
