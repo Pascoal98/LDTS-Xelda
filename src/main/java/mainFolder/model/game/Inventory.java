@@ -21,7 +21,7 @@ public class Inventory {
             this.size = size;
     }
 
-    public int getSize() {
+    public int getSize()     {
         return this.size;
     }
 

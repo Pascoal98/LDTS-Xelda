@@ -25,7 +25,7 @@ public class InventoryController extends Controller<InventoryMenu> {
                 break;
             case SELECT:
                 //TODO: FIX "CONDITIONS" TO REAL SOLUTIONS
-                if(getModel().isSelectedExtraHealthPotion())
+                if(getModel().isSelectedExtraHealthPotion()) game.setState(null);
                 if(getModel().isSelectedHealthPotion()) game.setState(new GameState(new LoaderLabyrinthBuilder(1).createLabyrinth()));
                 if(getModel().isSelectedExit()) game.setState(new GameState(getModel().getLabyrinth()));
         }
