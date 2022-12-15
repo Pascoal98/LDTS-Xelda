@@ -76,6 +76,10 @@ public class Labyrinth {
             if (wall.getPosition().equals(position))
                 return false;
         }
+        for(Door door: doors) {
+            if(door.getPosition().equals(position))
+                return false;
+        }
         return !shop.getPosition().equals(position);
     }
 
@@ -130,6 +134,18 @@ public class Labyrinth {
                 break;
             }
     }
+
+    public boolean isDoor(Position position) {
+        for (Door door: doors)
+            if (door.getPosition().equals(position))
+                return true;
+        return false;
+    }
+
+    public void openDoors() {
+        doors.clear();
+    }
+
     public List<Door> getDoors() {return doors;}
     public void setDoors(List<Door> doors) {this.doors = doors;}
     public List<Coin> getCoins(){return coins;}
