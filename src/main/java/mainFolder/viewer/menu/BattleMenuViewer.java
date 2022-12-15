@@ -20,5 +20,7 @@ public class BattleMenuViewer extends Viewer<BattleMenu> {
                     getModel().getEntry(i),
                     getModel().isSelected(i) ? "#FFD700" : "#FFFFFF");
         }
+        gui.drawText(new Position(3,15), "Hero lives: " + getModel().getHero().getHealth(), "#FFFFFF");
+        gui.drawText(new Position(3,16), "Monster lives: " + getModel().getMonster().getHealth(), "#FFFFFF");
     }
 }

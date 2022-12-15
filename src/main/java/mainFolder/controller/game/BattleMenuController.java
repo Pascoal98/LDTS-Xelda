@@ -4,6 +4,8 @@ import mainFolder.Start;
 import mainFolder.controller.Controller;
 import mainFolder.gui.GUI;
 import mainFolder.model.game.battle.BattleMenu;
+import mainFolder.model.game.labyrinth.Labyrinth;
+import mainFolder.states.GameState;
 
 import java.io.IOException;
 
@@ -38,6 +40,11 @@ public class BattleMenuController extends Controller<BattleMenu> {
                     getModel().useScissors();
                     System.out.println(getModel().getHero().getHealth());
                     System.out.println(getModel().getMonster().getHealth());
+                }
+                if(getModel().getHero().getHealth() == 0 || getModel().getMonster().getHealth() == 0) {
+                    getModel().getHero().initBattle(false);
+                    getModel().getLabyrinth().removeMonster(getModel().getMonster().getPosition());
+                    game.setState(new GameState(getModel().getLabyrinth()));
                 }
         }
     }

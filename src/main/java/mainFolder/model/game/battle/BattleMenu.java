@@ -2,6 +2,7 @@ package mainFolder.model.game.battle;
 
 import mainFolder.model.game.elements.Hero;
 import mainFolder.model.game.elements.Monster;
+import mainFolder.model.game.labyrinth.Labyrinth;
 
 import java.util.Arrays;
 import java.util.List;
@@ -13,8 +14,8 @@ public class BattleMenu extends Battle{
 
     private final List<String> entries = Arrays.asList("Rock", "Paper", "Scissors");
 
-    public BattleMenu(Hero hero, Monster monster) {
-        super(hero, monster);
+    public BattleMenu(Hero hero, Monster monster, Labyrinth labyrinth) {
+        super(hero, monster, labyrinth);
     }
 
     public boolean isSelectedRock() {
@@ -29,6 +30,7 @@ public class BattleMenu extends Battle{
         }
         if(entries.get(monsterMove).equals("Scissors")) {
             monster.decreaseHealth();
+            //labyrinth.removeMonster(monster.getPosition());
         }
     }
 
@@ -37,6 +39,7 @@ public class BattleMenu extends Battle{
 
         if(entries.get(monsterMove).equals("Rock")) {
             monster.decreaseHealth();
+            //labyrinth.removeMonster(monster.getPosition());
         }
         if(entries.get(monsterMove).equals("Scissors")) {
             hero.decreaseHealth();
@@ -48,6 +51,7 @@ public class BattleMenu extends Battle{
 
         if(entries.get(monsterMove).equals("Paper")) {
             monster.decreaseHealth();
+            //labyrinth.removeMonster(monster.getPosition());
         }
         if(entries.get(monsterMove).equals("Rock")) {
             hero.decreaseHealth();

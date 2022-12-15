@@ -123,9 +123,11 @@ public class Labyrinth {
     }
 
     public void removeMonster(Position position) {
-        for(Monster monster : monsters)
-            if (monster.getPosition().equals(position))
-                monsters.remove(monster);
+        int deleteMonster = 0;
+        for(int i = 0; i < monsters.size(); i++)
+            if (monsters.get(i).getPosition().equals(position))
+                deleteMonster = i;
+        monsters.remove(monsters.get(deleteMonster));
     }
     public List<Door> getDoors() {return doors;}
     public void setDoors(List<Door> doors) {this.doors = doors;}
@@ -150,6 +152,6 @@ public class Labyrinth {
     }
 
     public void createBattle(Hero hero, Monster monster) {
-        this.battle = new Battle(hero, monster);
+        this.battle = new Battle(hero, monster, this);
     }
 }
