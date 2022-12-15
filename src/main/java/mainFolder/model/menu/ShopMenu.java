@@ -1,5 +1,7 @@
 package mainFolder.model.menu;
 
+import mainFolder.model.game.labyrinth.Labyrinth;
+
 import java.util.Arrays;
 import java.util.HashMap;
 
@@ -7,11 +9,16 @@ public class ShopMenu extends Menu {
 
     private final HashMap<String, Integer> shop;
 
-    public ShopMenu(HashMap<String, Integer> shop) {
+    private Labyrinth labyrinth;
+    public ShopMenu(HashMap<String, Integer> shop, Labyrinth labyrinth) {
         super(Arrays.asList("Health Potion", "Extra Health Potion", "Exit"));
+        this.labyrinth = labyrinth;
         this.shop = shop;
     }
 
+    public Labyrinth getLabyrinth() {
+        return labyrinth;
+    }
     public boolean isSelectedHealthPotion() {
         return isSelected(0);
     }
