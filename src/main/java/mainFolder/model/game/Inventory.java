@@ -20,13 +20,16 @@ public class Inventory {
         if(size <= MAX_SIZE)
             this.size = size;
     }
-
     public boolean hasSpace() {
         return size < Inventory.MAX_SIZE;
     }
 
     public int getSize() {
         return this.size;
+    }
+
+    public int getMaxSize() {
+        return Inventory.MAX_SIZE;
     }
 
     public boolean itemInInventory(Item item) {
@@ -62,11 +65,13 @@ public class Inventory {
 
     public void useItem(String itemName) {
         Item it = getItem(itemName);
+        if (it == null)
+            return;
         it.useItem();
         if(it.getQuantity() == 1) {
             this.items.remove(it);
-            this.size--;
         }
+        this.size--;
         it.setQuantity(it.getQuantity()-1);
     }
 

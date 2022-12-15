@@ -47,10 +47,13 @@ public class Hero extends Element{
         inventory.useItem(itemName);
     }
 
-    public boolean hasItem(Item item) {
-        return inventory.itemInInventory(item);
+    public int getInventorySize() {
+        return inventory.getSize();
     }
 
+    public int getInventoryMaxSize() {
+        return inventory.getMaxSize();
+    }
     public List<Item> getItems() {
         return inventory.getAllItems();
     }

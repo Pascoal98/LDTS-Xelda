@@ -27,14 +27,8 @@ public class ShopMenuController extends Controller<ShopMenu> {
                 getModel().nextEntry();
                 break;
             case SELECT:
-                if(getModel().isSelectedHealthPotion()) {
-                    getModel().buyHealthPotion();
-                    game.setState(new GameState(getModel().getLabyrinth()));
-                }
-                if(getModel().isSelectedExtraHealthPotion()) {
-                    getModel().buyExtraHealthPotion();
-                    game.setState(new GameState(getModel().getLabyrinth()));
-                }
+                if(getModel().isSelectedHealthPotion()) getModel().buyHealthPotion();
+                if(getModel().isSelectedExtraHealthPotion()) getModel().buyExtraHealthPotion();
                 if(getModel().isSelectedExit()) game.setState(new GameState(getModel().getLabyrinth()));
         }
 

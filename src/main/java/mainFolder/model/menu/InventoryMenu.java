@@ -96,9 +96,17 @@ public class InventoryMenu {
     }
 
     public String addString(int i) {
-        if(i >= quantities.size()) {
-            return getEntry(i);
+        String itemName = getEntry(i);
+        if(i < quantities.size()) {
+            for (Item item : items) {
+                if (item.getName().equals(itemName))
+                    return getEntry(i) + "(" + item.getQuantity() + ")";
+            }
         }
-        return (getEntry(i) + "(" + getEntryQuantity(i) + ")");
+        return getEntry(i);
+    }
+
+    public String stringInventorySpace() {
+        return "Space:" + labyrinth.getHero().getInventorySize() + "/" + labyrinth.getHero().getInventoryMaxSize();
     }
 }
