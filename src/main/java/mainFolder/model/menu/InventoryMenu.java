@@ -103,9 +103,7 @@ public class InventoryMenu {
                     return getEntry(i) + "(" + item.getQuantity() + ")";
             }
         }
-
         return getEntry(i);
-        // return (getEntry(i) + "(" + getEntryQuantity(i) + ")");
     }
 
     public String stringInventorySpace() {

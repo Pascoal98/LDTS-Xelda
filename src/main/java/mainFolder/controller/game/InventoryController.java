@@ -26,11 +26,9 @@ public class InventoryController extends Controller<InventoryMenu> {
             case SELECT:
                 if(getModel().isSelectedExtraHealthPotion()) {
                     getModel().useExtraHealthPotion();
-                //    game.setState(new GameState(getModel().getLabyrinth()));
                 }
                 if(getModel().isSelectedHealthPotion()) {
                     getModel().useHealthPotion();
-                //    game.setState(new GameState(getModel().getLabyrinth()));
                 }
                 if(getModel().isSelectedExit()) game.setState(new GameState(getModel().getLabyrinth()));
         }
