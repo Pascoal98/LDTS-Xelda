@@ -29,11 +29,11 @@ public class ShopMenuController extends Controller<ShopMenu> {
             case SELECT:
                 if(getModel().isSelectedHealthPotion()) {
                     getModel().buyHealthPotion();
-                    game.setState(new GameState(getModel().getLabyrinth()));
+                   // game.setState(new GameState(getModel().getLabyrinth()));
                 }
                 if(getModel().isSelectedExtraHealthPotion()) {
                     getModel().buyExtraHealthPotion();
-                    game.setState(new GameState(getModel().getLabyrinth()));
+                  //  game.setState(new GameState(getModel().getLabyrinth()));
                 }
                 if(getModel().isSelectedExit()) game.setState(new GameState(getModel().getLabyrinth()));
         }

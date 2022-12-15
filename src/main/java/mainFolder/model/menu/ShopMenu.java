@@ -1,5 +1,6 @@
 package mainFolder.model.menu;
 
+import mainFolder.model.game.Inventory;
 import mainFolder.model.game.elements.Hero;
 import mainFolder.model.game.items.ExtraHealthPotion;
 import mainFolder.model.game.items.HealthPotion;
@@ -63,5 +64,13 @@ public class ShopMenu extends Menu {
         if(i == getNumberEntries() - 1)
             return getEntry(i);
         return getEntry(i) + "(" + shop.get(getEntry(i)) + "c)";
+    }
+
+    public String stringCoins() {
+        return "Coins:" + hero.getScore() + "c";
+    }
+
+    public String stringInventorySpace() {
+        return "Inventory:" + hero.getInventorySize() + "/" + hero.getInventoryMaxSize();
     }
 }

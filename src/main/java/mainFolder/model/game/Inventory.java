@@ -20,13 +20,16 @@ public class Inventory {
         if(size <= MAX_SIZE)
             this.size = size;
     }
-
     public boolean hasSpace() {
         return size < Inventory.MAX_SIZE;
     }
 
     public int getSize() {
         return this.size;
+    }
+
+    public int getMaxSize() {
+        return Inventory.MAX_SIZE;
     }
 
     public boolean itemInInventory(Item item) {
