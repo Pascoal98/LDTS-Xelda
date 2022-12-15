@@ -15,7 +15,6 @@ public class LabyrinthController extends GameController{
 
     private final HeroController heroController;
     private final MonsterController monsterController;
-    private Hero hero;
     public LabyrinthController(Labyrinth labyrinth) {
         super(labyrinth);
 
