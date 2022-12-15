@@ -1,12 +1,8 @@
 package mainFolder.model.game.elements;
 
 import mainFolder.model.game.Inventory;
-import mainFolder.model.game.battle.Battle;
-import mainFolder.model.game.items.ExtraHealthPotion;
-import mainFolder.model.game.items.HealthPotion;
 import mainFolder.model.game.items.Item;
 
-import javax.swing.plaf.basic.BasicInternalFrameTitlePane;
 import java.util.List;
 
 

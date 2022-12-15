@@ -28,18 +28,12 @@ public class BattleMenuController extends Controller<BattleMenu> {
             case SELECT:
                 if (getModel().isSelectedRock()) {
                     getModel().useRock();
-                    System.out.println(getModel().getHero().getHealth());
-                    System.out.println(getModel().getMonster().getHealth());
                 }
                 if (getModel().isSelectedPaper()) {
                     getModel().usePaper();
-                    System.out.println(getModel().getHero().getHealth());
-                    System.out.println(getModel().getMonster().getHealth());
                 }
                 if (getModel().isSelectedScissors()) {
                     getModel().useScissors();
-                    System.out.println(getModel().getHero().getHealth());
-                    System.out.println(getModel().getMonster().getHealth());
                 }
                 if(getModel().getHero().getHealth() == 0 || getModel().getMonster().getHealth() == 0) {
                     getModel().getHero().initBattle(false);
