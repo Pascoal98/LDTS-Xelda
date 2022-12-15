@@ -17,7 +17,7 @@ public class Hero extends Element{
 
     public Hero(int x, int y) {
         super(x, y);
-        this.health = 10;
+        this.health = 2;
         this.max_health = 10;
         this.inventory = new Inventory();
     }
