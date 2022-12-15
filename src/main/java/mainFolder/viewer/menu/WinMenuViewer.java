@@ -13,7 +13,7 @@ public class WinMenuViewer extends Viewer<WinMenu> {
 
     @Override
     protected void drawElements(GUI gui) {
-        gui.drawText(new Position(5, 3), "YOU WON!", "#FFFFFF");
+        gui.drawText(new Position(5, 3), "YOU WIN!", "#FFFFFF");
         gui.drawText(new Position(5, 5), getModel().stringScore(), "#FFFFFF");
 
         for(int i = 0; i < getModel().getNumberEntries(); i++) {
