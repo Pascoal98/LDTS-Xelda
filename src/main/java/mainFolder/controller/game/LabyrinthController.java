@@ -45,7 +45,7 @@ public class LabyrinthController extends GameController{
         }
         else if(nextLevel()) {
             if(getModel().getLevel() == getModel().getMaxLevel())
-                game.setState(new WinMenuState(new WinMenu()));
+                game.setState(new WinMenuState(new WinMenu(getModel().getHero().getScore())));
             else
                 game.setState(new GameState(new LoaderLabyrinthBuilder(getModel().getLevel()+1).createLabyrinth(getModel().getHero())));
         }

@@ -1,13 +1,14 @@
 package mainFolder.model.menu;
 
-import mainFolder.gui.GUI;
-
 import java.util.Arrays;
 
 public class WinMenu extends Menu {
 
-    public WinMenu() {
+    private int score;
+
+    public WinMenu(int score) {
         super(Arrays.asList("Play New Game", "Exit"));
+        this.score = score;
     }
 
     public boolean isSelectedPlayNewGame() {
@@ -16,5 +17,9 @@ public class WinMenu extends Menu {
 
     public boolean isSelectedExit() {
         return isSelected(1);
+    }
+
+    public String stringScore() {
+        return "Score:" + score;
     }
 }
