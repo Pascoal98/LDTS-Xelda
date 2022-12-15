@@ -87,6 +87,14 @@ public class InventoryMenu {
         return entries.get(currentEntry).equals("Exit");
     }
 
+    public void useHealthPotion() {
+        labyrinth.getHero().useItem("Health Potion");
+    }
+
+    public void useExtraHealthPotion() {
+        labyrinth.getHero().useItem("Extra Health Potion");
+    }
+
     public String addString(int i) {
         if(i >= quantities.size()) {
             return getEntry(i);

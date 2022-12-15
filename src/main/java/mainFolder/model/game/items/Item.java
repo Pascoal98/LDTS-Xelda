@@ -3,7 +3,7 @@ package mainFolder.model.game.items;
 import mainFolder.model.Position;
 import mainFolder.model.game.elements.Hero;
 
-public class Item {
+public abstract class Item {
 
     Hero hero;
     private final String name;
@@ -37,6 +37,8 @@ public class Item {
         }
         this.quantity--;
     }
+
+    public abstract void useItem();
 
     @Override
     public boolean equals(Object o) {
