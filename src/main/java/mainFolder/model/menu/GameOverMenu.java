@@ -4,8 +4,10 @@ import java.util.Arrays;
 
 public class GameOverMenu extends Menu {
 
-    public GameOverMenu() {
+    private int score;
+    public GameOverMenu(int score) {
         super(Arrays.asList("Retry", "Exit"));
+        this.score = score;
     }
 
     public boolean isSelectedRetry() {
@@ -14,5 +16,9 @@ public class GameOverMenu extends Menu {
 
     public boolean isSelectedExit() {
         return isSelected(1);
+    }
+
+    public String stringScore() {
+        return "Score:" + score;
     }
 }

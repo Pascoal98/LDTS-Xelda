@@ -5,6 +5,8 @@ import mainFolder.controller.Controller;
 import mainFolder.gui.GUI;
 import mainFolder.model.game.battle.BattleMenu;
 import mainFolder.model.game.labyrinth.Labyrinth;
+import mainFolder.model.menu.GameOverMenu;
+import mainFolder.states.GameOverMenuState;
 import mainFolder.states.GameState;
 
 import java.io.IOException;
@@ -35,9 +37,14 @@ public class BattleMenuController extends Controller<BattleMenu> {
                 if (getModel().isSelectedScissors()) {
                     getModel().useScissors();
                 }
-                if(getModel().getHero().getHealth() == 0 || getModel().getMonster().getHealth() == 0) {
+                if(getModel().getHero().getHealth() == 0) {
+                    getModel().getHero().initBattle(false);
+                    game.setState(new GameOverMenuState(new GameOverMenu(getModel().getHero().getScore())));
+                }
+                if(getModel().getMonster().getHealth() == 0) {
                     getModel().getHero().initBattle(false);
                     getModel().getLabyrinth().removeMonster(getModel().getMonster().getPosition());
+                    getModel().getHero().setScore(getModel().getHero().getScore() + 5);
                     game.setState(new GameState(getModel().getLabyrinth()));
                 }
         }
