@@ -1,6 +1,8 @@
 package mainFolder.model.menu;
 
+import mainFolder.model.game.Inventory;
 import mainFolder.model.game.items.Item;
+import mainFolder.model.game.labyrinth.Labyrinth;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -11,12 +13,23 @@ public class InventoryMenu {
     private List<String> quantities;
     private List<Item> items;
 
-    public InventoryMenu(List<Item> items) {
+    private Labyrinth labyrinth;
+
+    public InventoryMenu(List<Item> items, Labyrinth labyrinth) {
+        this.labyrinth = labyrinth;
         this.entries = new ArrayList<>();
         this.quantities = new ArrayList<>();
         this.items = items;
         fillEntries();
         fillQuantities();
+    }
+
+    public Labyrinth getLabyrinth() {
+        return labyrinth;
+    }
+
+    public void setLabyrinth(Labyrinth labyrinth) {
+        this.labyrinth = labyrinth;
     }
 
     public void fillEntries() {
