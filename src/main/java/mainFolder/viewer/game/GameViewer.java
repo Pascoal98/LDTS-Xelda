@@ -21,6 +21,7 @@ public class GameViewer extends Viewer<Labyrinth> {
         drawElement(gui, getModel().getHero(), new HeroViewer());
         drawElements(gui, getModel().getCoins(),new CoinViewer());
         drawElement(gui, getModel().getShop(), new ShopViewer());
+        drawElement(gui, getModel().getPortal(), new PortalViewer());
         drawElements(gui, getModel().getDoors(), new DoorViewer());
         if(getModel().getKey() != null)
             drawElement(gui, getModel().getKey(), new KeyViewer());

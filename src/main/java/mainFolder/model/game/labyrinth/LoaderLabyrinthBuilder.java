@@ -1,5 +1,6 @@
 package mainFolder.model.game.labyrinth;
 
+import mainFolder.model.Position;
 import mainFolder.model.game.elements.*;
 
 import java.io.BufferedReader;
@@ -12,6 +13,9 @@ import java.util.List;
 public class LoaderLabyrinthBuilder extends LabyrinthBuilder{
 
     private final int level;
+
+    private final int maxLevel = 2;
+
     private final List<String> lines;
 
     public LoaderLabyrinthBuilder(int level) throws IOException {
@@ -41,6 +45,16 @@ public class LoaderLabyrinthBuilder extends LabyrinthBuilder{
     @Override
     protected int getHeight() {
         return lines.size();
+    }
+
+    @Override
+    protected int getLevel() {
+        return level;
+    }
+
+    @Override
+    protected int getMaxLevel() {
+        return maxLevel;
     }
 
     @Override
@@ -75,6 +89,16 @@ public class LoaderLabyrinthBuilder extends LabyrinthBuilder{
             String line = lines.get(y);
             for (int x = 0; x < line.length(); x++)
                 if (line.charAt(x) == 'L') return new Hero(x, y);
+        }
+        return null;
+    }
+
+    @Override
+    protected Position loadHero() {
+        for (int y = 0; y < lines.size(); y++) {
+            String line = lines.get(y);
+            for (int x = 0; x < line.length(); x++)
+                if (line.charAt(x) == 'L') return new Position(x, y);
         }
         return null;
     }
@@ -115,6 +139,14 @@ public class LoaderLabyrinthBuilder extends LabyrinthBuilder{
         return null;
     }
 
+    @Override
+    protected Portal createPortal() {
+        for (int y = 0; y < lines.size(); y++) {
+            String line = lines.get(y);
+            for (int x = 0; x < line.length(); x++) {
+                if (line.charAt(x) == 'P') return new Portal(x, y);
+            }
+    
     @Override
     protected Key createKey() {
         for (int y = 0; y < lines.size(); y++) {

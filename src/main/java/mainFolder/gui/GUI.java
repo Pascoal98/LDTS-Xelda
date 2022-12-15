@@ -2,6 +2,7 @@ package mainFolder.gui;
 
 import mainFolder.model.Position;
 import mainFolder.model.game.elements.Door;
+import mainFolder.model.game.elements.Portal;
 
 import java.io.IOException;
 import java.util.List;
@@ -20,6 +21,9 @@ public interface GUI {
     void drawMonster(Position position);
 
     void drawShop(Position position);
+
+
+    void drawPortal(Position position);
 
     void drawKey(Position position);
 

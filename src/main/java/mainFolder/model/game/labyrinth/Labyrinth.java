@@ -12,11 +12,16 @@ public class Labyrinth {
 
     private List<Coin> coins;
 
+    private int level;
+
+    private int maxLevel;
     private List<Door> doors;
     private Key key;
     private int width;
     private int height;
     private Hero hero;
+
+    private Portal portal;
 
     private Shop shop;
     private List<Monster> monsters;
@@ -24,12 +29,35 @@ public class Labyrinth {
     private Battle battle;
 
     private List<Wall> walls;
-    public Labyrinth(int width, int height) {
+
+    public Labyrinth(int width, int height, int level, int maxLevel) {
         this.width = width;
         this.height = height;
         hero = new Hero(10,10);
         this.walls = createWalls();
         shop = new Shop(5,5);
+        this.level = level;
+        this.maxLevel = maxLevel;
+    }
+
+    public int getLevel() {
+        return level;
+    }
+
+    public void setLevel(int level) {
+        this.level = level;
+    }
+
+    public int getMaxLevel() {
+        return this.maxLevel;
+    }
+
+    public Portal getPortal() {
+        return portal;
+    }
+
+    public void setPortal(Portal portal) {
+        this.portal = portal;
     }
 
     public Shop getShop() {
@@ -76,10 +104,16 @@ public class Labyrinth {
             if (wall.getPosition().equals(position))
                 return false;
         }
+     
         for(Door door: doors) {
             if(door.getPosition().equals(position))
                 return false;
         }
+        
+        if(portal.getPosition().equals(position)) {
+            return getMonsters().size() == 0;
+        }
+        
         return !shop.getPosition().equals(position);
     }
 
