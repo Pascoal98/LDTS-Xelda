@@ -114,4 +114,15 @@ public class LoaderLabyrinthBuilder extends LabyrinthBuilder{
         }
         return null;
     }
+
+    @Override
+    protected Portal createPortal() {
+        for (int y = 0; y < lines.size(); y++) {
+            String line = lines.get(y);
+            for (int x = 0; x < line.length(); x++) {
+                if (line.charAt(x) == 'P') return new Portal(x, y);
+            }
+        }
+        return null;
+    }
 }

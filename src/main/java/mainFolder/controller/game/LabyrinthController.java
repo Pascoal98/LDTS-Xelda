@@ -3,6 +3,7 @@ package mainFolder.controller.game;
 import mainFolder.Start;
 import mainFolder.gui.GUI;
 import mainFolder.model.game.labyrinth.Labyrinth;
+import mainFolder.model.game.labyrinth.LoaderLabyrinthBuilder;
 import mainFolder.model.menu.*;
 import mainFolder.model.game.battle.BattleMenu;
 import mainFolder.states.*;
@@ -22,6 +23,9 @@ public class LabyrinthController extends GameController{
         this.monsterController = new MonsterController(labyrinth);
     }
 
+    public boolean nextLevel() {
+        return getModel().getHero().getPosition().equals(getModel().getPortal().getPosition());
+    }
     public void step(Start game, GUI.ACTION action, long time) throws IOException {
         if (action == GUI.ACTION.QUIT)
             game.setState(null);
@@ -39,6 +43,9 @@ public class LabyrinthController extends GameController{
             } else {
                 getModel().getHero().initBattle(false);
             }
+        }
+        else if(nextLevel()) {
+            game.setState(new GameState(new LoaderLabyrinthBuilder(2).createLabyrinth()));
         }
         else {
             heroController.step(game, action, time);

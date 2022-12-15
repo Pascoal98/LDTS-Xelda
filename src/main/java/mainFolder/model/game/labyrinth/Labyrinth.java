@@ -17,6 +17,8 @@ public class Labyrinth {
     private int height;
     private Hero hero;
 
+    private Portal portal;
+
     private Shop shop;
     private List<Monster> monsters;
 
@@ -29,6 +31,14 @@ public class Labyrinth {
         hero = new Hero(10,10);
         this.walls = createWalls();
         shop = new Shop(5,5);
+    }
+
+    public Portal getPortal() {
+        return portal;
+    }
+
+    public void setPortal(Portal portal) {
+        this.portal = portal;
     }
 
     public Shop getShop() {
@@ -75,6 +85,11 @@ public class Labyrinth {
             if (wall.getPosition().equals(position))
                 return false;
         }
+
+        if(portal.getPosition().equals(position)) {
+            return getMonsters().size() == 0;
+        }
+
         return !shop.getPosition().equals(position);
     }
 

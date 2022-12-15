@@ -111,6 +111,10 @@ public class LanternaGUI implements GUI {
         drawCharacter(position.getX(), position.getY(), 'S', "#A020F0");
     }
 
+    public void drawPortal(Position position) {
+        drawCharacter(position.getX(), position.getY(), 'P', "#FFA500");
+    }
+
     @Override
     public void drawText(Position position, String text, String color) {
         TextGraphics tg = screen.newTextGraphics();
