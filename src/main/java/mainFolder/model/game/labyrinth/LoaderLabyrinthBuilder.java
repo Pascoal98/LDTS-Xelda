@@ -1,5 +1,6 @@
 package mainFolder.model.game.labyrinth;
 
+import mainFolder.model.Position;
 import mainFolder.model.game.elements.*;
 
 import java.io.BufferedReader;
@@ -75,6 +76,16 @@ public class LoaderLabyrinthBuilder extends LabyrinthBuilder{
             String line = lines.get(y);
             for (int x = 0; x < line.length(); x++)
                 if (line.charAt(x) == 'L') return new Hero(x, y);
+        }
+        return null;
+    }
+
+    @Override
+    protected Hero loadHero(Hero hero) {
+        for (int y = 0; y < lines.size(); y++) {
+            String line = lines.get(y);
+            for (int x = 0; x < line.length(); x++)
+                if (line.charAt(x) == 'L') hero.setPosition(new Position(x, y));
         }
         return null;
     }
