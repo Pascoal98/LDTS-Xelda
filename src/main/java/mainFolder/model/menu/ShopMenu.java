@@ -34,7 +34,7 @@ public class ShopMenu extends Menu {
         boolean inventoryHasSpace = hero.inventoryHasSpace();
 
         if(hasCoins && inventoryHasSpace) {
-            Item item = new HealthPotion();
+            Item item = new HealthPotion(hero);
             hero.addItem(item);
             hero.setScore(hero.getScore() - shop.get("Health Potion"));
         }
@@ -45,7 +45,7 @@ public class ShopMenu extends Menu {
         boolean inventoryHasSpace = hero.inventoryHasSpace();
 
         if(hasCoins && inventoryHasSpace) {
-            Item item = new ExtraHealthPotion();
+            Item item = new ExtraHealthPotion(hero);
             hero.addItem(item);
             hero.setScore(hero.getScore() - shop.get("Extra Health Potion"));
         }

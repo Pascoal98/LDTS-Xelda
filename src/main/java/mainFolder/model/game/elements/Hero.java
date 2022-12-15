@@ -47,8 +47,8 @@ public class Hero extends Element{
         inventory.addItem(item);
     }
 
-    public void useItem(Item item) {
-        inventory.useItem(item);
+    public void useItem(String itemName) {
+        inventory.useItem(itemName);
     }
 
     public boolean hasItem(Item item) {
@@ -76,5 +76,4 @@ public class Hero extends Element{
     public boolean inventoryHasSpace() {
         return inventory.hasSpace();
     }
-
 }

@@ -24,6 +24,7 @@ public class Inventory {
     public boolean hasSpace() {
         return size < Inventory.MAX_SIZE;
     }
+
     public int getSize() {
         return this.size;
     }
@@ -51,18 +52,17 @@ public class Inventory {
         size++;
     }
 
-    public Item getItem(Item item) {
-        if(itemInInventory(item)) {
-            for(Item i : items) {
-                if(item.equals(i))
-                    return i;
-            }
+    public Item getItem(String itemName) {
+        for(Item i : items) {
+            if(itemName.equals(i.getName()))
+                return i;
         }
         return null;
     }
 
-    public void useItem(Item item) {
-        Item it = getItem(item);
+    public void useItem(String itemName) {
+        Item it = getItem(itemName);
+        it.useItem();
         if(it.getQuantity() == 1) {
             this.items.remove(it);
             this.size--;

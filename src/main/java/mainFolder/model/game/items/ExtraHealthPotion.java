@@ -1,15 +1,15 @@
 package mainFolder.model.game.items;
 
+import mainFolder.model.game.elements.Hero;
+
 public class ExtraHealthPotion extends Item {
-    public ExtraHealthPotion() {
+    public ExtraHealthPotion(Hero hero) {
         super("Extra Health Potion");
+        this.hero = hero;
     }
 
     public void useItem() {
-        if(hero.hasItem(this)) {
-            hero.setMaxHealth(hero.getMaxHealth()+1);
-            hero.setHealth(hero.getHealth()+1);
-            hero.useItem(this);
-        }
+        hero.setMaxHealth(hero.getMaxHealth()+1);
+        hero.setHealth(hero.getHealth()+1);
     }
 }
