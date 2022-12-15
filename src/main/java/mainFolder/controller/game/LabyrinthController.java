@@ -45,7 +45,9 @@ public class LabyrinthController extends GameController{
             }
         }
         else if(nextLevel()) {
-            game.setState(new GameState(new LoaderLabyrinthBuilder(2).createLabyrinth(getModel().getHero())));
+            if(getModel().getLevel() == getModel().getMaxLevel())
+            else
+                game.setState(new GameState(new LoaderLabyrinthBuilder(2).createLabyrinth(getModel().getHero())));
         }
         else {
             heroController.step(game, action, time);

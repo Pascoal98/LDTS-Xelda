@@ -13,6 +13,9 @@ import java.util.List;
 public class LoaderLabyrinthBuilder extends LabyrinthBuilder{
 
     private final int level;
+
+    private final int maxLevel = 2;
+
     private final List<String> lines;
 
     public LoaderLabyrinthBuilder(int level) throws IOException {
@@ -42,6 +45,16 @@ public class LoaderLabyrinthBuilder extends LabyrinthBuilder{
     @Override
     protected int getHeight() {
         return lines.size();
+    }
+
+    @Override
+    protected int getLevel() {
+        return level;
+    }
+
+    @Override
+    protected int getMaxLevel() {
+        return maxLevel;
     }
 
     @Override
@@ -81,11 +94,11 @@ public class LoaderLabyrinthBuilder extends LabyrinthBuilder{
     }
 
     @Override
-    protected Hero loadHero(Hero hero) {
+    protected Position loadHero() {
         for (int y = 0; y < lines.size(); y++) {
             String line = lines.get(y);
             for (int x = 0; x < line.length(); x++)
-                if (line.charAt(x) == 'L') hero.setPosition(new Position(x, y));
+                if (line.charAt(x) == 'L') return new Position(x, y);
         }
         return null;
     }
