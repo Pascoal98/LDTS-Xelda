@@ -13,7 +13,7 @@ public class BattleMenuViewer extends Viewer<BattleMenu> {
     }
     @Override
     protected void drawElements(GUI gui) {
-        gui.drawText(new Position(5,1), "Battle Scene", "#FFFFFF");
+        gui.drawText(new Position(5,5), "Battle Scene", "#FFFFFF");
         for(int i = 0; i < getModel().getNumberEntries(); i++) {
             gui.drawText(
                     new Position(5, 7 + i),
