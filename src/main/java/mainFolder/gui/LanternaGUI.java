@@ -111,6 +111,7 @@ public class LanternaGUI implements GUI {
         drawCharacter(position.getX(), position.getY(), 'S', "#A020F0");
     }
 
+    public void drawKey(Position position) { drawCharacter(position.getX(), position.getY(), 'K', "#21345F");}
     @Override
     public void drawText(Position position, String text, String color) {
         TextGraphics tg = screen.newTextGraphics();

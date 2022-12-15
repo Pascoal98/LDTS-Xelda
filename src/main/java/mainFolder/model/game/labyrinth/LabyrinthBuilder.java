@@ -16,18 +16,7 @@ public abstract class LabyrinthBuilder {
         labyrinth.setCoins(createCoins());
         labyrinth.setDoors(createDoors());
         labyrinth.setShop(createShop());
-
-        return labyrinth;
-    }
-
-    public Labyrinth load() {
-
-        labyrinth.setHero(labyrinth.getHero());
-        labyrinth.setMonsters(labyrinth.getMonsters());
-        labyrinth.setWalls(labyrinth.getWalls());
-        labyrinth.setCoins(labyrinth.getCoins());
-        labyrinth.setDoors(labyrinth.getDoors());
-        labyrinth.setShop(labyrinth.getShop());
+        labyrinth.setKey(createKey());
 
         return labyrinth;
     }
@@ -55,5 +44,7 @@ public abstract class LabyrinthBuilder {
     protected abstract List<Door> createDoors();
 
     protected abstract Shop createShop();
+
+    protected abstract Key createKey();
 }
 

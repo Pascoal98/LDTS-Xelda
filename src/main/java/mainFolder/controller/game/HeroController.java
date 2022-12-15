@@ -38,6 +38,10 @@ public class HeroController extends GameController{
                 getModel().getHero().addScore();
                 getModel().collectCoins(position);
             }
+            if(getModel().isKey(position)) {
+                getModel().getHero().setKey(true);
+                getModel().setKey(null);
+            }
         }
     }
 

@@ -13,6 +13,7 @@ public class Labyrinth {
     private List<Coin> coins;
 
     private List<Door> doors;
+    private Key key;
     private int width;
     private int height;
     private Hero hero;
@@ -123,11 +124,11 @@ public class Labyrinth {
     }
 
     public void removeMonster(Position position) {
-        int deleteMonster = 0;
-        for(int i = 0; i < monsters.size(); i++)
-            if (monsters.get(i).getPosition().equals(position))
-                deleteMonster = i;
-        monsters.remove(monsters.get(deleteMonster));
+        for(Monster monster: monsters)
+            if(monster.getPosition().equals(position)){
+                monsters.remove(monster);
+                break;
+            }
     }
     public List<Door> getDoors() {return doors;}
     public void setDoors(List<Door> doors) {this.doors = doors;}
@@ -149,6 +150,19 @@ public class Labyrinth {
             }
         }
         return coins;
+    }
+
+    public Key getKey() {
+        return key;
+    }
+
+    public void setKey(Key key) {
+        this.key = key;
+    }
+
+    public boolean isKey(Position position) {
+        if(key == null) return false;
+        return key.getPosition().equals(position);
     }
 
     public void createBattle(Hero hero, Monster monster) {

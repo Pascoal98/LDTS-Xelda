@@ -2,6 +2,7 @@ package mainFolder.viewer.game;
 
 import mainFolder.gui.GUI;
 import mainFolder.model.Position;
+import mainFolder.model.game.elements.Door;
 import mainFolder.model.game.elements.Element;
 import mainFolder.model.game.labyrinth.Labyrinth;
 import mainFolder.viewer.Viewer;
@@ -20,6 +21,9 @@ public class GameViewer extends Viewer<Labyrinth> {
         drawElement(gui, getModel().getHero(), new HeroViewer());
         drawElements(gui, getModel().getCoins(),new CoinViewer());
         drawElement(gui, getModel().getShop(), new ShopViewer());
+        drawElements(gui, getModel().getDoors(), new DoorViewer());
+        if(getModel().getKey() != null)
+            drawElement(gui, getModel().getKey(), new KeyViewer());
 
         gui.drawText(new Position(0, 0), "Lives: " + getModel().getHero().getHealth() + "/" + getModel().getHero().getMaxHealth(), "#FFFFFF");
         gui.drawText(new Position(15,0),"Score: " + getModel().getHero().getScore(),"#FFFFFF");
