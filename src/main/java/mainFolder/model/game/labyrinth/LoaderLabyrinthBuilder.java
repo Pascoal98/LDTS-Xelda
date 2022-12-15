@@ -146,6 +146,13 @@ public class LoaderLabyrinthBuilder extends LabyrinthBuilder{
             for (int x = 0; x < line.length(); x++) {
                 if (line.charAt(x) == 'P') return new Portal(x, y);
             }
+    
+    @Override
+    protected Key createKey() {
+        for (int y = 0; y < lines.size(); y++) {
+            String line = lines.get(y);
+            for (int x = 0; x < line.length(); x++)
+                if (line.charAt(x) == 'K') return new Key(x, y);
         }
         return null;
     }

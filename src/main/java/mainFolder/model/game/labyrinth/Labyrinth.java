@@ -16,6 +16,7 @@ public class Labyrinth {
 
     private int maxLevel;
     private List<Door> doors;
+    private Key key;
     private int width;
     private int height;
     private Hero hero;
@@ -103,11 +104,16 @@ public class Labyrinth {
             if (wall.getPosition().equals(position))
                 return false;
         }
-
+     
+        for(Door door: doors) {
+            if(door.getPosition().equals(position))
+                return false;
+        }
+        
         if(portal.getPosition().equals(position)) {
             return getMonsters().size() == 0;
         }
-
+        
         return !shop.getPosition().equals(position);
     }
 
@@ -156,12 +162,24 @@ public class Labyrinth {
     }
 
     public void removeMonster(Position position) {
-        int deleteMonster = 0;
-        for(int i = 0; i < monsters.size(); i++)
-            if (monsters.get(i).getPosition().equals(position))
-                deleteMonster = i;
-        monsters.remove(monsters.get(deleteMonster));
+        for(Monster monster: monsters)
+            if(monster.getPosition().equals(position)){
+                monsters.remove(monster);
+                break;
+            }
     }
+
+    public boolean isDoor(Position position) {
+        for (Door door: doors)
+            if (door.getPosition().equals(position))
+                return true;
+        return false;
+    }
+
+    public void openDoors() {
+        doors.clear();
+    }
+
     public List<Door> getDoors() {return doors;}
     public void setDoors(List<Door> doors) {this.doors = doors;}
     public List<Coin> getCoins(){return coins;}
@@ -182,6 +200,19 @@ public class Labyrinth {
             }
         }
         return coins;
+    }
+
+    public Key getKey() {
+        return key;
+    }
+
+    public void setKey(Key key) {
+        this.key = key;
+    }
+
+    public boolean isKey(Position position) {
+        if(key == null) return false;
+        return key.getPosition().equals(position);
     }
 
     public void createBattle(Hero hero, Monster monster) {

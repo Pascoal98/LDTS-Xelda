@@ -12,6 +12,9 @@ public class Hero extends Element{
     private int score;
     private Inventory inventory;
     private boolean isBattle = false;
+
+    private boolean hasKey = false;
+
     public Hero(int x, int y) {
         super(x, y);
         this.health = 10;
@@ -74,5 +77,13 @@ public class Hero extends Element{
 
     public boolean inventoryHasSpace() {
         return inventory.hasSpace();
+    }
+
+    public boolean getKey() {
+        return hasKey;
+    }
+
+    public void setKey(Boolean bool) {
+        this.hasKey = bool;
     }
 }

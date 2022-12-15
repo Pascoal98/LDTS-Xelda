@@ -33,7 +33,7 @@ public class LabyrinthController extends GameController{
         else if(action == GUI.ACTION.INVENTORY)
             game.setState(new InventoryState(new InventoryMenu(getModel().getHero().getItems(), getModel())));
         else if(action == GUI.ACTION.SHOP) {
-            if(getModel().inRangeShop())
+            if (getModel().inRangeShop())
                 game.setState(new ShopState(new ShopMenu(getModel().getShop().getShop(), getModel(), getModel().getHero())));
         }
         else if(getModel().getHero().getBattle()) {

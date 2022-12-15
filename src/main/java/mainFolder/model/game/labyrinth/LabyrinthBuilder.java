@@ -24,6 +24,7 @@ public abstract class LabyrinthBuilder {
 
     public Labyrinth createLabyrinth(Hero hero) {
         labyrinth = new Labyrinth(getWidth(), getHeight(), getLevel(), getMaxLevel());
+        
         hero.setPosition(loadHero());
         labyrinth.setHero(createHero());
         labyrinth.setHero(hero);
@@ -46,6 +47,7 @@ public abstract class LabyrinthBuilder {
         labyrinth.setDoors(labyrinth.getDoors());
         labyrinth.setShop(labyrinth.getShop());
         labyrinth.setPortal(labyrinth.getPortal());
+        labyrinth.setKey(createKey());
 
         return labyrinth;
     }
@@ -81,5 +83,8 @@ public abstract class LabyrinthBuilder {
     protected abstract int getMaxLevel();
 
     protected abstract Portal createPortal();
+
+    protected abstract Key createKey();
+
 }
 
