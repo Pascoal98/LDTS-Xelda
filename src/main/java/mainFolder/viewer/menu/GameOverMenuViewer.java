@@ -13,7 +13,8 @@ public class GameOverMenuViewer extends Viewer<GameOverMenu> {
 
     @Override
     protected void drawElements(GUI gui) {
-        gui.drawText(new Position(5, 1), "Game Over", "#FFFFFF");
+        gui.drawText(new Position(5, 2), "Game Over", "#FFFFFF");
+        gui.drawText(new Position(5, 4), getModel().stringScore(), "#FFFFFF");
         for(int i = 0; i < getModel().getNumberEntries(); i++) {
             gui.drawText(
                     new Position(5, 7+i),

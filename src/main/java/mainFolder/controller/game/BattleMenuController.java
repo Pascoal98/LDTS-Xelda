@@ -39,7 +39,7 @@ public class BattleMenuController extends Controller<BattleMenu> {
                 }
                 if(getModel().getHero().getHealth() == 0) {
                     getModel().getHero().initBattle(false);
-                    game.setState(new GameOverMenuState(new GameOverMenu()));
+                    game.setState(new GameOverMenuState(new GameOverMenu(getModel().getHero().getScore())));
                 }
                 if(getModel().getMonster().getHealth() == 0) {
                     getModel().getHero().initBattle(false);
