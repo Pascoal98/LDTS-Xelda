@@ -65,6 +65,8 @@ public class Inventory {
 
     public void useItem(String itemName) {
         Item it = getItem(itemName);
+        if (it == null)
+            return;
         it.useItem();
         if(it.getQuantity() == 1) {
             this.items.remove(it);
