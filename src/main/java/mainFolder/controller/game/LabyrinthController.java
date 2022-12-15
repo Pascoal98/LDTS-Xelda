@@ -2,7 +2,6 @@ package mainFolder.controller.game;
 
 import mainFolder.Start;
 import mainFolder.gui.GUI;
-import mainFolder.model.game.elements.Hero;
 import mainFolder.model.game.labyrinth.Labyrinth;
 import mainFolder.model.game.labyrinth.LoaderLabyrinthBuilder;
 import mainFolder.model.menu.*;
@@ -46,8 +45,9 @@ public class LabyrinthController extends GameController{
         }
         else if(nextLevel()) {
             if(getModel().getLevel() == getModel().getMaxLevel())
+                game.setState(new WinMenuState(new WinMenu()));
             else
-                game.setState(new GameState(new LoaderLabyrinthBuilder(2).createLabyrinth(getModel().getHero())));
+                game.setState(new GameState(new LoaderLabyrinthBuilder(getModel().getLevel()+1).createLabyrinth(getModel().getHero())));
         }
         else {
             heroController.step(game, action, time);
