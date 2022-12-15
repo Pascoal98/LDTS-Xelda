@@ -1,5 +1,9 @@
 package mainFolder.model.menu;
 
+import mainFolder.model.game.elements.Hero;
+import mainFolder.model.game.items.ExtraHealthPotion;
+import mainFolder.model.game.items.HealthPotion;
+import mainFolder.model.game.items.Item;
 import mainFolder.model.game.labyrinth.Labyrinth;
 
 import java.util.Arrays;
@@ -9,9 +13,11 @@ public class ShopMenu extends Menu {
 
     private final HashMap<String, Integer> shop;
 
+    private Hero hero;
     private Labyrinth labyrinth;
-    public ShopMenu(HashMap<String, Integer> shop, Labyrinth labyrinth) {
+    public ShopMenu(HashMap<String, Integer> shop, Labyrinth labyrinth, Hero hero) {
         super(Arrays.asList("Health Potion", "Extra Health Potion", "Exit"));
+        this.hero = hero;
         this.labyrinth = labyrinth;
         this.shop = shop;
     }
@@ -21,6 +27,14 @@ public class ShopMenu extends Menu {
     }
     public boolean isSelectedHealthPotion() {
         return isSelected(0);
+    }
+
+    public void buyHealthPotion() {
+        if(hero.getScore() < shop.get("Health Potion"))
+            return;
+        Item item = new HealthPotion();
+        hero.addItem(item);
+        hero.setScore(hero.getScore() - shop.get("Health Potion"));
     }
 
     public boolean isSelectedExtraHealthPotion() {
