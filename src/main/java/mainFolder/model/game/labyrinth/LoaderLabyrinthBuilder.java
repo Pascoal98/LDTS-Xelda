@@ -88,7 +88,7 @@ public class LoaderLabyrinthBuilder extends LabyrinthBuilder{
         for (int y = 0; y < lines.size(); y++) {
             String line = lines.get(y);
             for (int x = 0; x < line.length(); x++)
-                if (line.charAt(x) == 'L') return new Hero(x, y);
+                if (line.charAt(x) == 'H') return new Hero(x, y);
         }
         return null;
     }
@@ -98,7 +98,7 @@ public class LoaderLabyrinthBuilder extends LabyrinthBuilder{
         for (int y = 0; y < lines.size(); y++) {
             String line = lines.get(y);
             for (int x = 0; x < line.length(); x++)
-                if (line.charAt(x) == 'L') return new Position(x, y);
+                if (line.charAt(x) == 'H') return new Position(x, y);
         }
         return null;
     }

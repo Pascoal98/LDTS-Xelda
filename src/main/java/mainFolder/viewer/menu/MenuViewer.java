@@ -15,11 +15,11 @@ public class MenuViewer extends Viewer<MainMenu> {
         gui.drawBackground();
         gui.drawXeldaMenu(getModel().getYellow(),getModel().getGreen(),getModel().getBlue(),getModel().getBrown());
         gui.drawBorder(getModel().getBorder());
-        gui.drawText(new Position(11, 8), "Legend of Xelda", "#FFFFFF");
+       // gui.drawText(new Position(5, 8), "Xelda", "#FFFFFF");
 
         for (int i = 0; i < getModel().getNumberEntries(); i++)
             gui.drawText(
-                    new Position(11, 9 + i),
+                    new Position(5, 9 + i),
                     getModel().getEntry(i),
                     getModel().isSelected(i) ? "#FFD700" : "#FFFFFF");
     }
