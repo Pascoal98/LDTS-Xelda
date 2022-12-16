@@ -14,7 +14,7 @@ public class LoaderLabyrinthBuilder extends LabyrinthBuilder{
 
     private final int level;
 
-    private final int maxLevel = 2;
+    private final int maxLevel = 3;
 
     private final List<String> lines;
 
