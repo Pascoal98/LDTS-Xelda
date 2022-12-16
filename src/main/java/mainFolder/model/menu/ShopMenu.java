@@ -73,4 +73,8 @@ public class ShopMenu extends Menu {
     public String stringInventorySpace() {
         return "Inventory:" + hero.getInventorySize() + "/" + hero.getInventoryMaxSize();
     }
+
+    public String stringHeroHealth() {
+        return "Lives:" + hero.getHealth() + "/" + hero.getMaxHealth();
+    }
 }

@@ -13,12 +13,13 @@ public class ShopMenuViewer extends Viewer<ShopMenu> {
     @Override
     protected void drawElements(GUI gui) {
         gui.drawText(new Position(5,2), "Shop", "#FFFFFF");
-        gui.drawText(new Position(5,4), getModel().stringCoins(), "#FFFFFF");
-        gui.drawText(new Position(5,5), getModel().stringInventorySpace(), "#FFFFFF");
+        gui.drawText(new Position(5, 4), getModel().stringHeroHealth(), "#FFFFFF");
+        gui.drawText(new Position(5,6), getModel().stringCoins(), "#FFFFFF");
+        gui.drawText(new Position(5,7), getModel().stringInventorySpace(), "#FFFFFF");
 
         for(int i = 0; i < getModel().getNumberEntries(); i++) {
             gui.drawText(
-                    new Position(5,7+i),
+                    new Position(5,9+i),
                     getModel().addString(i),
                     getModel().isSelected(i) ? "#FFD700" : "#FFFFFF");
         }
