@@ -10,6 +10,5 @@ public class ExtraHealthPotion extends Item {
 
     public void useItem() {
         hero.setMaxHealth(hero.getMaxHealth()+1);
-        hero.setHealth(hero.getHealth()+1);
     }
 }
