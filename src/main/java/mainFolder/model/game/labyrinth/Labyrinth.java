@@ -125,7 +125,7 @@ public class Labyrinth {
         int distanceX = hero.getPosition().getX() - shop.getPosition().getX();
         int distanceY = hero.getPosition().getY() - shop.getPosition().getY();
         double totalDistance = Math.sqrt(Math.pow(distanceX,2) + Math.pow(distanceY, 2));
-        return totalDistance <= 1;
+        return totalDistance <= 1.5;
     }
     public void setHero(Hero hero) {
         this.hero = hero;
