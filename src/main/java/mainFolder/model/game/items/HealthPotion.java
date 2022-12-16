@@ -9,6 +9,6 @@ public class HealthPotion extends Item {
     }
 
     public void useItem() {
-        hero.setHealth(hero.getMaxHealth());
+        hero.setHealth(hero.getHealth() + 1);
     }
 }
