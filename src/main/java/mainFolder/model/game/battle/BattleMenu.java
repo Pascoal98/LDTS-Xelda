@@ -4,6 +4,7 @@ import mainFolder.model.game.elements.Hero;
 import mainFolder.model.game.elements.Monster;
 import mainFolder.model.game.labyrinth.Labyrinth;
 
+import java.awt.print.Paper;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Random;
@@ -11,6 +12,9 @@ import java.util.Random;
 public class BattleMenu extends Battle{
 
     private int currentEntry = 0;
+
+    private String heroMove;
+    private String monsterMove;
 
     private final List<String> entries = Arrays.asList("Rock", "Paper", "Scissors");
 
@@ -24,38 +28,50 @@ public class BattleMenu extends Battle{
 
     public void useRock() {
         int monsterMove = randomMove();
+        this.heroMove = "Rock";
 
         if(entries.get(monsterMove).equals("Paper")) {
             hero.decreaseHealth();
+            setMonsterMove("Paper");
         }
         if(entries.get(monsterMove).equals("Scissors")) {
             monster.decreaseHealth();
-            //labyrinth.removeMonster(monster.getPosition());
+            setMonsterMove("Scissors");
         }
+        if(entries.get(monsterMove).equals("Rock"))
+            setMonsterMove("Rock");
     }
 
     public void usePaper() {
         int monsterMove = randomMove();
+        setHeroMove("Paper");
 
         if(entries.get(monsterMove).equals("Rock")) {
             monster.decreaseHealth();
-            //labyrinth.removeMonster(monster.getPosition());
+            setMonsterMove("Rock");
         }
         if(entries.get(monsterMove).equals("Scissors")) {
             hero.decreaseHealth();
+            setMonsterMove("Scissors");
         }
+        if(entries.get(monsterMove).equals("Paper"))
+            setMonsterMove("Paper");
     }
 
     public void useScissors() {
         int monsterMove = randomMove();
+        setHeroMove("Scissors");
 
         if(entries.get(monsterMove).equals("Paper")) {
             monster.decreaseHealth();
-            //labyrinth.removeMonster(monster.getPosition());
+            setMonsterMove("Paper");
         }
         if(entries.get(monsterMove).equals("Rock")) {
             hero.decreaseHealth();
+            setMonsterMove("Rock");
         }
+        if(entries.get(monsterMove).equals("Scissors"))
+            setMonsterMove("Scissors");
     }
 
     public boolean isSelectedPaper() {
@@ -92,6 +108,22 @@ public class BattleMenu extends Battle{
 
     public int randomMove() {
         return new Random().nextInt(entries.size());
+    }
+
+    public String getHeroMove() {
+        return heroMove;
+    }
+
+    public String getMonsterMove() {
+        return monsterMove;
+    }
+
+    public void setHeroMove(String string) {
+        this.heroMove = string;
+    }
+
+    public void setMonsterMove(String string) {
+        this.monsterMove = string;
     }
 
 }

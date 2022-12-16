@@ -4,12 +4,12 @@ import mainFolder.Start;
 import mainFolder.controller.Controller;
 import mainFolder.gui.GUI;
 import mainFolder.model.game.battle.BattleMenu;
-import mainFolder.model.game.labyrinth.Labyrinth;
 import mainFolder.model.menu.GameOverMenu;
 import mainFolder.states.GameOverMenuState;
 import mainFolder.states.GameState;
 
 import java.io.IOException;
+
 
 public class BattleMenuController extends Controller<BattleMenu> {
 
@@ -42,6 +42,8 @@ public class BattleMenuController extends Controller<BattleMenu> {
                     game.setState(new GameOverMenuState(new GameOverMenu(getModel().getHero().getScore())));
                 }
                 if(getModel().getMonster().getHealth() == 0) {
+                    getModel().setHeroMove(null);
+                    getModel().setMonsterMove(null);
                     getModel().getHero().initBattle(false);
                     getModel().getLabyrinth().removeMonster(getModel().getMonster().getPosition());
                     getModel().getHero().setScore(getModel().getHero().getScore() + 5);
