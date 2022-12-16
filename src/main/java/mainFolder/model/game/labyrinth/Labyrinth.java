@@ -110,9 +110,9 @@ public class Labyrinth {
                 return false;
         }
         
-        if(portal.getPosition().equals(position)) {
+    /*    if(portal.getPosition().equals(position)) {
             return getMonsters().size() == 0;
-        }
+        } */
         
         return !shop.getPosition().equals(position);
     }
