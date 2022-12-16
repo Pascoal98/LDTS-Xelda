@@ -109,4 +109,8 @@ public class InventoryMenu {
     public String stringInventorySpace() {
         return "Space:" + labyrinth.getHero().getInventorySize() + "/" + labyrinth.getHero().getInventoryMaxSize();
     }
+
+    public String stringHeroHealth() {
+        return "Lives:" + labyrinth.getHero().getHealth() + "/" + labyrinth.getHero().getMaxHealth();
+    }
 }
