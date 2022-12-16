@@ -1,6 +1,7 @@
 package mainFolder.model.game;
 
 import mainFolder.model.Position;
+import mainFolder.model.game.elements.Hero;
 import mainFolder.model.game.items.Item;
 
 import java.util.ArrayList;
@@ -11,7 +12,10 @@ public class Inventory {
     private int size;
     private List<Item> items;
 
-    public Inventory() {
+    private Hero hero;
+
+    public Inventory(Hero hero) {
+        this.hero = hero;
         this.items = new ArrayList<>();
         this.size = 0;
     }
@@ -67,6 +71,12 @@ public class Inventory {
         Item it = getItem(itemName);
         if (it == null)
             return;
+
+        if(itemName.equals("Health Potion")) {
+            if(hero.getHealth() == hero.getMaxHealth())
+                return;
+        }
+
         it.useItem();
         if(it.getQuantity() == 1) {
             this.items.remove(it);
