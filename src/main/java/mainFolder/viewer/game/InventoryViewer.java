@@ -14,7 +14,7 @@ public class InventoryViewer extends Viewer<InventoryMenu> {
     @Override
     protected void drawElements(GUI gui) {
         gui.drawText(new Position(5, 3), "Inventory", "#FFFFFF");
-        gui.drawText(new Position(5,5), getModel().stringInventorySpace(), "#FFFFFF");
+        gui.drawText(new Position(5, 5), getModel().stringInventorySpace(), "#FFFFFF");
 
         for(int i = 0; i < getModel().getNumberEntries(); i++)
             gui.drawText(
