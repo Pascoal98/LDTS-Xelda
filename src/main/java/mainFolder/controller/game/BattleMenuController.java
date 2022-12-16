@@ -44,6 +44,7 @@ public class BattleMenuController extends Controller<BattleMenu> {
                 if(getModel().getMonster().getHealth() == 0) {
                     getModel().setHeroMove(null);
                     getModel().setMonsterMove(null);
+                    getModel().setRounds(0);
                     getModel().getHero().initBattle(false);
                     getModel().getLabyrinth().removeMonster(getModel().getMonster().getPosition());
                     getModel().getHero().setScore(getModel().getHero().getScore() + 5);

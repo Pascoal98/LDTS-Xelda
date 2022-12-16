@@ -13,6 +13,8 @@ public class BattleMenu extends Battle{
 
     private int currentEntry = 0;
 
+    private int rounds;
+
     private String heroMove;
     private String monsterMove;
 
@@ -27,6 +29,7 @@ public class BattleMenu extends Battle{
     }
 
     public void useRock() {
+        incrementRound();
         int monsterMove = randomMove();
         this.heroMove = "Rock";
 
@@ -43,6 +46,7 @@ public class BattleMenu extends Battle{
     }
 
     public void usePaper() {
+        incrementRound();
         int monsterMove = randomMove();
         setHeroMove("Paper");
 
@@ -59,6 +63,7 @@ public class BattleMenu extends Battle{
     }
 
     public void useScissors() {
+        incrementRound();
         int monsterMove = randomMove();
         setHeroMove("Scissors");
 
@@ -126,4 +131,11 @@ public class BattleMenu extends Battle{
         this.monsterMove = string;
     }
 
+    public void setRounds(int number) {this.rounds = number;}
+
+    public int getRounds() {return rounds;}
+
+    public void incrementRound() {
+        rounds+=1;
+    }
 }

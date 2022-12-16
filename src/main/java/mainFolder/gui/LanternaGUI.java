@@ -102,7 +102,7 @@ public class LanternaGUI implements GUI {
         drawCharacter(position.getX(), position.getY(), 'M', "#CC0000");
     }
 
-    public void drawDoor(Position position) {drawCharacter(position.getX(), position.getY(), '|',"#BFBFBF");}
+    public void drawDoor(Position position) {drawCharacter(position.getX(), position.getY(), '|',"#595220");}
 
     public void drawCoin(Position position) {drawCharacter(position.getX(), position.getY(), 'c',"#FFC900");}
 
