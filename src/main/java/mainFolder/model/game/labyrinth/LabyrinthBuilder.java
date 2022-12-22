@@ -8,9 +8,24 @@ import java.util.List;
 public abstract class LabyrinthBuilder {
 
     Labyrinth labyrinth;
+
     public Labyrinth createLabyrinth() {
         labyrinth = new Labyrinth(getWidth(), getHeight(), getLevel(), getMaxLevel());
 
+        fillLabyrinth();
+
+        return labyrinth;
+    }
+
+    public Labyrinth createLabyrinth(Hero hero) {
+        labyrinth = new Labyrinth(getWidth(), getHeight(), getLevel(), getMaxLevel());
+
+        fillLabyrinth(hero);
+
+        return labyrinth;
+    }
+
+    public void fillLabyrinth() {
         labyrinth.setHero(createHero());
         labyrinth.setMonsters(createMonsters());
         labyrinth.setWalls(createWalls());
@@ -19,15 +34,10 @@ public abstract class LabyrinthBuilder {
         labyrinth.setShop(createShop());
         labyrinth.setPortal(createPortal());
         labyrinth.setKey(createKey());
-
-        return labyrinth;
     }
 
-    public Labyrinth createLabyrinth(Hero hero) {
-        labyrinth = new Labyrinth(getWidth(), getHeight(), getLevel(), getMaxLevel());
-        
+    public void fillLabyrinth(Hero hero) {
         hero.setPosition(loadHero());
-        labyrinth.setHero(createHero());
         labyrinth.setHero(hero);
         labyrinth.setMonsters(createMonsters());
         labyrinth.setWalls(createWalls());
@@ -36,8 +46,6 @@ public abstract class LabyrinthBuilder {
         labyrinth.setShop(createShop());
         labyrinth.setPortal(createPortal());
         labyrinth.setKey(createKey());
-
-        return labyrinth;
     }
 
     public Labyrinth getLabyrinth() {

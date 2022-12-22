@@ -57,15 +57,32 @@ public class LoaderLabyrinthBuilder extends LabyrinthBuilder{
         return maxLevel;
     }
 
-    @Override
-    protected List<Wall> createWalls() {
-        List<Wall> walls = new ArrayList<>();
-
+    protected Position getMapPosition(char c) {
         for (int y = 0; y < lines.size(); y++) {
             String line = lines.get(y);
             for (int x = 0; x < line.length(); x++)
-                if (line.charAt(x) == '#') walls.add(new Wall(x, y));
+                if (line.charAt(x) == c) return new Position(x,y);
         }
+        return null;
+    }
+
+    protected List<Position> getMapPositions(char c) {
+        List<Position> positions = new ArrayList<>();
+        for (int y = 0; y < lines.size(); y++) {
+            String line = lines.get(y);
+            for (int x = 0; x < line.length(); x++)
+                if (line.charAt(x) == c) positions.add(new Position(x,y));
+        }
+        return positions;
+    }
+
+    @Override
+    protected List<Wall> createWalls() {
+        List<Wall> walls = new ArrayList<>();
+        List<Position> positions = getMapPositions('#');
+
+        for(Position position : positions)
+            walls.add(new Wall(position.getX(), position.getY()));
 
         return walls;
     }
@@ -73,45 +90,34 @@ public class LoaderLabyrinthBuilder extends LabyrinthBuilder{
     @Override
     protected List<Monster> createMonsters() {
         List<Monster> monsters = new ArrayList<>();
+        List<Position> positions = getMapPositions('M');
 
-        for (int y = 0; y < lines.size(); y++) {
-            String line = lines.get(y);
-            for (int x = 0; x < line.length(); x++)
-                if (line.charAt(x) == 'M') monsters.add(new Monster(x, y));
-        }
+        for(Position position : positions)
+            monsters.add(new Monster(position.getX(), position.getY()));
 
         return monsters;
     }
 
     @Override
     protected Hero createHero() {
-        for (int y = 0; y < lines.size(); y++) {
-            String line = lines.get(y);
-            for (int x = 0; x < line.length(); x++)
-                if (line.charAt(x) == 'H') return new Hero(x, y);
-        }
+        Position position = getMapPosition('H');
+        if(position != null)
+            return new Hero(position.getX(), position.getY());
         return null;
     }
 
     @Override
     protected Position loadHero() {
-        for (int y = 0; y < lines.size(); y++) {
-            String line = lines.get(y);
-            for (int x = 0; x < line.length(); x++)
-                if (line.charAt(x) == 'H') return new Position(x, y);
-        }
-        return null;
+        return getMapPosition('H');
     }
 
     @Override
     protected List<Coin> createCoins() {
         List<Coin> coins = new ArrayList<>();
+        List<Position> positions = getMapPositions('c');
 
-        for (int y = 0; y < lines.size(); y++) {
-            String line = lines.get(y);
-            for (int x = 0; x < line.length(); x++)
-                if (line.charAt(x) == 'c') coins.add(new Coin(x, y));
-        }
+        for(Position position : positions)
+            coins.add(new Coin(position.getX(), position.getY()));
 
         return coins;
     }
@@ -119,45 +125,35 @@ public class LoaderLabyrinthBuilder extends LabyrinthBuilder{
     @Override
     protected List<Door> createDoors() {
         List<Door> doors = new ArrayList<>();
+        List<Position> positions = getMapPositions('|');
 
-        for (int y = 0; y < lines.size(); y++) {
-            String line = lines.get(y);
-            for (int x = 0; x < line.length(); x++)
-                if (line.charAt(x) == '|') doors.add(new Door(x, y));
-        }
+        for(Position position : positions)
+            doors.add(new Door(position.getX(), position.getY()));
 
         return doors;
     }
 
     @Override
     protected Shop createShop() {
-        for (int y = 0; y < lines.size(); y++) {
-            String line = lines.get(y);
-            for (int x = 0; x < line.length(); x++)
-                if (line.charAt(x) == 'S') return new Shop(x, y);
-        }
+        Position position = getMapPosition('S');
+        if(position != null)
+            return new Shop(position.getX(), position.getY());
         return null;
     }
 
     @Override
     protected Portal createPortal() {
-        for (int y = 0; y < lines.size(); y++) {
-            String line = lines.get(y);
-            for (int x = 0; x < line.length(); x++) {
-                if (line.charAt(x) == 'P') return new Portal(x, y);
-            }
-        }
+        Position position = getMapPosition('P');
+        if(position != null)
+            return new Portal(position.getX(), position.getY());
         return null;
     }
 
     @Override
     protected Key createKey() {
-        for (int y = 0; y < lines.size(); y++) {
-            String line = lines.get(y);
-            for (int x = 0; x < line.length(); x++) {
-                if (line.charAt(x) == 'K') return new Key(x, y);
-            }
-        }
+        Position position = getMapPosition('K');
+        if(position != null)
+            return new Key(position.getX(), position.getY());
         return null;
     }
 }
