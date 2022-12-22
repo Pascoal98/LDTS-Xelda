@@ -67,6 +67,13 @@ To solve this problem, we implemented the MVC (model-view-controller) design pat
 ### Refactoring : Win Menu
 - In order to simplify the if clause in Buypotion() method, we simply extracted the variables (Composing Method : Extract Variable)
 
+## Code Smells
+### Dead code
+The game worked exactly the same way as this functions weren't being used, therefore we can say that this was a chunk of dead of dead code.
+
+![](images/deadcode.png)
+
+
 ### SELF-EVALUATION
 - Bruno Pinheiro (up201705562): 34%
 - Eduardo Machado (up202105337): 33%
