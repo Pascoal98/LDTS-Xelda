@@ -90,7 +90,7 @@ public class LanternaGUI implements GUI {
 
     @Override
     public void drawHero(Position position) {
-        drawCharacter(position.getX(), position.getY(), 'H', "#FFD700");
+        drawCharacter(position.getX(), position.getY(), 'H', "#78FF00");
     }
 
     @Override
@@ -158,23 +158,26 @@ public class LanternaGUI implements GUI {
     @Override
     public void drawBackground() {
         TextGraphics tg = screen.newTextGraphics();
-        tg.setBackgroundColor(TextColor.Factory.fromString("#4AAB79"));
+        tg.setBackgroundColor(TextColor.Factory.fromString("#143E8E"));
         tg.fillRectangle(new TerminalPosition(0,0), new TerminalSize(31,31),' ');
     }
 
     @Override
-    public void drawXeldaMenu(java.util.List<Position> white, java.util.List<Position> green, java.util.List<Position> blue, List<Position> brown){
+    public void drawXeldaMenu(java.util.List<Position> white, java.util.List<Position> green, java.util.List<Position> blue, List<Position> brown, List<Position> yellow){
         for(Position position: white){
-            drawText(position, "-", "#FFFF00", "#FFFF00");
+            drawText(position, "@", "#F9F9F9", "#F9F9F9");
         }
         for(Position position: blue){
-            drawText(position, "$", "#00B9CC", "#00B9CC");
+            drawText(position, "$", "#0C1E40", "#0C1E40");
         }
         for(Position position: green){
-            drawText(position, "@", "#A7FFAC", "#A7FFAC");
+            drawText(position, "-", "#60F167", "#60F167");
         }
-        for(Position position: brown){
-            drawText(position, "#", "#AC6800", "#4AAB79");
+        for(Position position: brown) {
+            drawText(position, "#", "#B87A16", "#B87A16");
+        }
+        for (Position position : yellow){
+            drawText(position,"?","#FFE43C", "#FFE43C");
         }
     }
 }

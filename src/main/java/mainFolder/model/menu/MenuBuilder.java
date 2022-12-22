@@ -13,6 +13,7 @@ public abstract class MenuBuilder {
         mainMenu.setBrown(createBrown());
         mainMenu.setGreen(createGreen());
         mainMenu.setBorder(createBorder());
+        mainMenu.setYellow(createYellow());
         return mainMenu;
     }
     /*
@@ -33,6 +34,7 @@ public abstract class MenuBuilder {
     protected abstract List<Position> createBrown();
     protected abstract List<Position> createGreen();
     protected abstract List<Position> createBorder();
+    protected abstract List<Position> createYellow();
 
 
 

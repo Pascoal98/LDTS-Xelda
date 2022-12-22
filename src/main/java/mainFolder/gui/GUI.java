@@ -39,5 +39,5 @@ public interface GUI {
 
     void drawBorder(List<Position> border);
     void drawBackground();
-    void drawXeldaMenu(List<Position> white, List<Position> green, List<Position> blue, List<Position> brown);
+    void drawXeldaMenu(List<Position> white, List<Position> green, List<Position> blue, List<Position> brown,List<Position> yellow);
 }
