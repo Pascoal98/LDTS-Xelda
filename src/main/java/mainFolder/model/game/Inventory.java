@@ -20,10 +20,6 @@ public class Inventory {
         this.size = 0;
     }
 
-    public void setSize(int size) {
-        if(size <= MAX_SIZE)
-            this.size = size;
-    }
     public boolean hasSpace() {
         return size < Inventory.MAX_SIZE;
     }
@@ -36,24 +32,29 @@ public class Inventory {
         return Inventory.MAX_SIZE;
     }
 
-    //TODO: display message saying inventory is full
     public void addItem(Item item) {
         if(size >= Inventory.MAX_SIZE)
             return;
-        if(items.contains(item)) {
-            for(Item it : items) {
-                if (it.equals(item)) {
-                    it.incrementsQuantity();
-                    size++;
-                    return;
-                }
-            }
-        }
-        items.add(item);
-        item.incrementsQuantity();
+
+        if(items.contains(item))
+            addExistingItem(item);
+        else
+            addNewItem(item);
+
         size++;
     }
 
+    public void addExistingItem(Item item) {
+        for(Item it : items) {
+            if(it.equals(item)) {
+                it.incrementsQuantity();
+            }
+        }
+    }
+
+    public void addNewItem(Item item) {
+        items.add(item);
+    }
     public Item getItem(String itemName) {
         for(Item i : items) {
             if(itemName.equals(i.getName()))
@@ -78,9 +79,7 @@ public class Inventory {
     }
 
     public List<Item> getAllItems() {
-        List<Item> it = new ArrayList<>();
-        it.addAll(items);
-        return it;
+        return new ArrayList<>(items);
     }
 
     public List<String> getItemsNames() {
