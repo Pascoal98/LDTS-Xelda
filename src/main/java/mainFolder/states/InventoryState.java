@@ -1,8 +1,7 @@
 package mainFolder.states;
 
 import mainFolder.controller.Controller;
-import mainFolder.controller.game.InventoryController;
-import mainFolder.model.game.Inventory;
+import mainFolder.controller.menu.InventoryController;
 import mainFolder.model.menu.InventoryMenu;
 import mainFolder.viewer.Viewer;
 import mainFolder.viewer.game.InventoryViewer;

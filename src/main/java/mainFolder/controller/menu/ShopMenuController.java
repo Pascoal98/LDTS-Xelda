@@ -3,10 +3,8 @@ package mainFolder.controller.menu;
 import mainFolder.Start;
 import mainFolder.controller.Controller;
 import mainFolder.gui.GUI;
-import mainFolder.model.game.labyrinth.LoaderLabyrinthBuilder;
 import mainFolder.model.menu.ShopMenu;
 import mainFolder.states.GameState;
-import mainFolder.states.MenuState;
 
 import java.io.IOException;
 
