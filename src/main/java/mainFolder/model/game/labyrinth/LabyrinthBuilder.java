@@ -20,27 +20,14 @@ public abstract class LabyrinthBuilder {
     public Labyrinth createLabyrinth(Hero hero) {
         labyrinth = new Labyrinth(getWidth(), getHeight(), getLevel(), getMaxLevel());
 
-        fillLabyrinth(hero);
+        fillLabyrinth();
+        loadHero(hero);
 
         return labyrinth;
     }
 
     public void fillLabyrinth() {
         labyrinth.setHero(createHero());
-        fill();
-    }
-
-    public void fillLabyrinth(Hero hero) {
-        saveHero(hero);
-        fill();
-    }
-
-    public void saveHero(Hero hero) {
-        hero.setPosition(loadHero());
-        labyrinth.setHero(hero);
-    }
-
-    public void fill() {
         labyrinth.setMonsters(createMonsters());
         labyrinth.setWalls(createWalls());
         labyrinth.setCoins(createCoins());
@@ -48,6 +35,11 @@ public abstract class LabyrinthBuilder {
         labyrinth.setShop(createShop());
         labyrinth.setPortal(createPortal());
         labyrinth.setKey(createKey());
+    }
+
+    public void loadHero(Hero hero) {
+        hero.setPosition(loadHeroPosition());
+        labyrinth.setHero(hero);
     }
 
     public Labyrinth getLabyrinth() {
@@ -68,7 +60,7 @@ public abstract class LabyrinthBuilder {
 
     protected abstract Hero createHero();
 
-    protected abstract Position loadHero();
+    protected abstract Position loadHeroPosition();
 
     protected abstract List<Coin> createCoins();
 

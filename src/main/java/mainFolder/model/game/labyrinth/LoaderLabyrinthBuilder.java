@@ -108,7 +108,7 @@ public class LoaderLabyrinthBuilder extends LabyrinthBuilder{
     }
 
     @Override
-    protected Position loadHero() {
+    protected Position loadHeroPosition() {
         return getMapPosition('H');
     }
 
