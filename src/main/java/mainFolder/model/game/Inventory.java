@@ -54,6 +54,7 @@ public class Inventory {
 
     public void addNewItem(Item item) {
         items.add(item);
+        item.incrementsQuantity();
     }
     public Item getItem(String itemName) {
         for(Item i : items) {
