@@ -12,6 +12,7 @@ import com.googlecode.lanterna.terminal.DefaultTerminalFactory;
 import com.googlecode.lanterna.terminal.Terminal;
 import com.googlecode.lanterna.terminal.swing.AWTTerminalFontConfiguration;
 import mainFolder.model.Position;
+import org.w3c.dom.Text;
 
 import java.awt.*;
 import java.io.File;
@@ -116,12 +117,13 @@ public class LanternaGUI implements GUI {
     }
 
 
-    public void drawKey(Position position) { drawCharacter(position.getX(), position.getY(), 'K', "#21345F");}
+    public void drawKey(Position position) { drawCharacter(position.getX(), position.getY(), 'K', "#00FFD6");}
 
     @Override
-    public void drawText(Position position, String text, String color) {
+    public void drawText(Position position, String text, String color, String background) {
         TextGraphics tg = screen.newTextGraphics();
         tg.setForegroundColor(TextColor.Factory.fromString(color));
+        tg.setBackgroundColor(TextColor.Factory.fromString(background));
         tg.putString(position.getX(), position.getY(), text);
     }
 
@@ -156,23 +158,23 @@ public class LanternaGUI implements GUI {
     @Override
     public void drawBackground() {
         TextGraphics tg = screen.newTextGraphics();
-        tg.setBackgroundColor(TextColor.Factory.fromString("#055E00"));
+        tg.setBackgroundColor(TextColor.Factory.fromString("#4AAB79"));
         tg.fillRectangle(new TerminalPosition(0,0), new TerminalSize(31,31),' ');
     }
 
     @Override
-    public void drawXeldaMenu(java.util.List<Position> yellow, java.util.List<Position> green, java.util.List<Position> blue, List<Position> brown){
-        for(Position position: yellow){
-            drawText(position, "-", "#FFFF00");
+    public void drawXeldaMenu(java.util.List<Position> white, java.util.List<Position> green, java.util.List<Position> blue, List<Position> brown){
+        for(Position position: white){
+            drawText(position, "-", "#FFFF00", "#FFFF00");
         }
         for(Position position: blue){
-            drawText(position, "$", "#00B9CC");
+            drawText(position, "$", "#00B9CC", "#00B9CC");
         }
         for(Position position: green){
-            drawText(position, "@", "#A7FFAC");
+            drawText(position, "@", "#A7FFAC", "#A7FFAC");
         }
         for(Position position: brown){
-            drawText(position, "#", "#AC6800");
+            drawText(position, "#", "#AC6800", "#4AAB79");
         }
     }
 }

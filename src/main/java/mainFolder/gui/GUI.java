@@ -27,7 +27,7 @@ public interface GUI {
 
     void drawKey(Position position);
 
-    void drawText(Position position, String text, String color);
+    void drawText(Position position, String text, String color, String background);
 
     void clear();
 
@@ -39,5 +39,5 @@ public interface GUI {
 
     void drawBorder(List<Position> border);
     void drawBackground();
-    void drawXeldaMenu(List<Position> yellow, List<Position> green, List<Position> blue, List<Position> brown);
+    void drawXeldaMenu(List<Position> white, List<Position> green, List<Position> blue, List<Position> brown);
 }

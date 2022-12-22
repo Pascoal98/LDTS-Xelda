@@ -8,7 +8,7 @@ import java.util.List;
 public abstract class MenuBuilder {
     public MainMenu createMenu(){
         MainMenu mainMenu = new MainMenu();
-        mainMenu.setYellow(createYellow());
+        mainMenu.setWhite(createWhite());
         mainMenu.setBlue(createBlue());
         mainMenu.setBrown(createBrown());
         mainMenu.setGreen(createGreen());
@@ -17,18 +17,18 @@ public abstract class MenuBuilder {
     }
     /*
     public GameOverMenu createGameOverMenu(){
-        GameOverMenu gameOverMenu = new GameOverMenu();
+        GameOverMenu gameOverMenu = new GameOverMenu(1);
         gameOverMenu.setBorder(createBorder());
         return gameOverMenu;
     }
 
-    public VictoryMenu createVictoryMenu(){
-        VictoryMenu victoryMenu = new VictoryMenu();
+    public WinMenu createWinMenu(){
+        WinMenu victoryMenu = new WinMenu(1);
         victoryMenu.setBorder(createBorder());
         return victoryMenu;
     }
-     */
-    protected abstract List<Position> createYellow();
+    */
+    protected abstract List<Position> createWhite();
     protected abstract List<Position> createBlue();
     protected abstract List<Position> createBrown();
     protected abstract List<Position> createGreen();

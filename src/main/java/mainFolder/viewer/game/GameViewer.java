@@ -26,9 +26,9 @@ public class GameViewer extends Viewer<Labyrinth> {
         if(getModel().getKey() != null)
             drawElement(gui, getModel().getKey(), new KeyViewer());
 
-        gui.drawText(new Position(0, 0), "Lives:" + getModel().getHero().getHealth() + "/" + getModel().getHero().getMaxHealth(), "#FFFFFF");
-        gui.drawText(new Position(12,0),"Score:" + getModel().getHero().getScore(),"#FFFFFF");
-        gui.drawText(new Position(22, 0), "Level:" + getModel().getLevel() + "/" + getModel().getMaxLevel(), "#FFFFFF");
+        gui.drawText(new Position(0, 0), "Lives:" + getModel().getHero().getHealth() + "/" + getModel().getHero().getMaxHealth(), "#FFFFFF", "#323232");
+        gui.drawText(new Position(13,0),"Score:" + getModel().getHero().getScore(),"#FFFFFF", "#323232");
+        gui.drawText(new Position(22, 0), "Level:" + getModel().getLevel() + "/" + getModel().getMaxLevel(), "#FFFFFF", "#323232");
     }
 
     private <T extends Element> void drawElements(GUI gui, List<T> elements, ElementViewer<T> viewer) {

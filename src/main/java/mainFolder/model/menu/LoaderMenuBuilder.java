@@ -21,16 +21,16 @@ public class LoaderMenuBuilder extends MenuBuilder{
         for ( String line;(line= br.readLine())!= null;)
             lines.add(line);
     }
-    public List<Position> createYellow() {
-        List<Position> Yellow = new ArrayList<>();
+    public List<Position> createWhite() {
+        List<Position> White = new ArrayList<>();
         for (int y = 0; y< lines.size();y++){
             String line = lines.get(y);
             for(int x = 0; x<line.length();x++){
                 if (line.charAt(x) == '-')
-                    Yellow.add(new Position(x,y));
+                    White.add(new Position(x,y));
             }
         }
-        return Yellow;
+        return White;
     }
     public List<Position> createBlue() {
         List<Position> Blue = new ArrayList<>();
@@ -66,14 +66,14 @@ public class LoaderMenuBuilder extends MenuBuilder{
         return Brown;
     }
     public List<Position> createBorder() {
-        List<Position> Yellow = new ArrayList<>();
+        List<Position> Border = new ArrayList<>();
         for (int y = 0; y< lines.size();y++){
             String line = lines.get(y);
             for(int x = 0; x<line.length();x++){
                 if (line.charAt(x) == '*')
-                    Yellow.add(new Position(x,y));
+                    Border.add(new Position(x,y));
             }
         }
-        return Yellow;
+        return Border;
     }
 }

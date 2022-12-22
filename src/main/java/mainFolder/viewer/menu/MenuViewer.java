@@ -13,14 +13,14 @@ public class MenuViewer extends Viewer<MainMenu> {
     @Override
     public void drawElements(GUI gui) {
         gui.drawBackground();
-        gui.drawXeldaMenu(getModel().getYellow(),getModel().getGreen(),getModel().getBlue(),getModel().getBrown());
+        gui.drawXeldaMenu(getModel().getWhite(),getModel().getGreen(),getModel().getBlue(),getModel().getBrown());
         gui.drawBorder(getModel().getBorder());
-       // gui.drawText(new Position(5, 8), "Xelda", "#FFFFFF");
+
 
         for (int i = 0; i < getModel().getNumberEntries(); i++)
             gui.drawText(
                     new Position(5, 9 + i),
                     getModel().getEntry(i),
-                    getModel().isSelected(i) ? "#FFD700" : "#FFFFFF");
+                    getModel().isSelected(i) ? "#FFD700" : "#FFFFFF", "#4AAB79");
     }
 }
