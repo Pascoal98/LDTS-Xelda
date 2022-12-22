@@ -27,18 +27,20 @@ public abstract class LabyrinthBuilder {
 
     public void fillLabyrinth() {
         labyrinth.setHero(createHero());
-        labyrinth.setMonsters(createMonsters());
-        labyrinth.setWalls(createWalls());
-        labyrinth.setCoins(createCoins());
-        labyrinth.setDoors(createDoors());
-        labyrinth.setShop(createShop());
-        labyrinth.setPortal(createPortal());
-        labyrinth.setKey(createKey());
+        fill();
     }
 
     public void fillLabyrinth(Hero hero) {
+        saveHero(hero);
+        fill();
+    }
+
+    public void saveHero(Hero hero) {
         hero.setPosition(loadHero());
         labyrinth.setHero(hero);
+    }
+
+    public void fill() {
         labyrinth.setMonsters(createMonsters());
         labyrinth.setWalls(createWalls());
         labyrinth.setCoins(createCoins());

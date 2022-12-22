@@ -22,6 +22,7 @@ public class LoaderLabyrinthBuilder extends LabyrinthBuilder{
         this.level = level;
 
         URL resource = LoaderLabyrinthBuilder.class.getResource("/levels/level" + level + ".lvl");
+        assert resource != null;
         BufferedReader br = new BufferedReader(new FileReader(resource.getFile()));
 
         lines = readLines(br);
