@@ -4,7 +4,6 @@ import mainFolder.model.game.elements.Hero;
 import mainFolder.model.game.elements.Monster;
 import mainFolder.model.game.labyrinth.Labyrinth;
 
-import java.awt.print.Paper;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Random;

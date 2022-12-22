@@ -1,6 +1,5 @@
 package mainFolder.model.menu;
 
-import mainFolder.model.game.Inventory;
 import mainFolder.model.game.elements.Hero;
 import mainFolder.model.game.items.ExtraHealthPotion;
 import mainFolder.model.game.items.HealthPotion;

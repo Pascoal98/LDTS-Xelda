@@ -40,20 +40,6 @@ public abstract class LabyrinthBuilder {
         return labyrinth;
     }
 
-    public Labyrinth load() {
-
-        labyrinth.setHero(labyrinth.getHero());
-        labyrinth.setMonsters(labyrinth.getMonsters());
-        labyrinth.setWalls(labyrinth.getWalls());
-        labyrinth.setCoins(labyrinth.getCoins());
-        labyrinth.setDoors(labyrinth.getDoors());
-        labyrinth.setShop(labyrinth.getShop());
-        labyrinth.setPortal(labyrinth.getPortal());
-        labyrinth.setKey(labyrinth.getKey());
-
-        return labyrinth;
-    }
-
     public Labyrinth getLabyrinth() {
         return labyrinth;
     }

@@ -1,6 +1,5 @@
 package mainFolder.model.menu;
 
-import mainFolder.model.game.Inventory;
 import mainFolder.model.game.items.Item;
 import mainFolder.model.game.labyrinth.Labyrinth;
 

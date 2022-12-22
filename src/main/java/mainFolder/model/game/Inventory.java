@@ -36,11 +36,6 @@ public class Inventory {
         return Inventory.MAX_SIZE;
     }
 
-    public boolean itemInInventory(Item item) {
-        return items.contains(item);
-    }
-
-
     //TODO: display message saying inventory is full
     public void addItem(Item item) {
         if(size >= Inventory.MAX_SIZE)

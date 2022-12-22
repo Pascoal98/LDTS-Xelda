@@ -13,8 +13,7 @@ public class Labyrinth {
     private List<Coin> coins;
 
     private int level;
-
-    private int maxLevel;
+    private final int maxLevel;
     private List<Door> doors;
     private Key key;
     private int width;
@@ -33,19 +32,13 @@ public class Labyrinth {
     public Labyrinth(int width, int height, int level, int maxLevel) {
         this.width = width;
         this.height = height;
-        hero = new Hero(10,10);
         this.walls = createWalls();
-        shop = new Shop(5,5);
         this.level = level;
         this.maxLevel = maxLevel;
     }
 
     public int getLevel() {
         return level;
-    }
-
-    public void setLevel(int level) {
-        this.level = level;
     }
 
     public int getMaxLevel() {
@@ -68,23 +61,6 @@ public class Labyrinth {
         this.shop = shop;
     }
 
-    public int getWidth() {
-        return width;
-    }
-
-    public int getHeight() {
-        return height;
-    }
-
-    public void setWidth(int width) {
-        this.width = width;
-    }
-
-    public void setHeight(int height) {
-        this.height = height;
-    }
-
-
     private List<Wall> createWalls() {
         List<Wall> walls = new ArrayList<>();
 
@@ -99,7 +75,7 @@ public class Labyrinth {
 
         return walls;
     }
-    public boolean canHeroMove(Position position) { //isEmpty do prof
+    public boolean canHeroMove(Position position) {
         for(Wall wall : walls) {
             if (wall.getPosition().equals(position))
                 return false;
@@ -109,10 +85,6 @@ public class Labyrinth {
             if(door.getPosition().equals(position))
                 return false;
         }
-        
-    /*    if(portal.getPosition().equals(position)) {
-            return getMonsters().size() == 0;
-        } */
         
         return !shop.getPosition().equals(position);
     }
@@ -169,20 +141,16 @@ public class Labyrinth {
             }
     }
 
-    public boolean isDoor(Position position) {
-        for (Door door: doors)
-            if (door.getPosition().equals(position))
-                return true;
-        return false;
-    }
-
     public void openDoors() {
         doors.clear();
     }
 
     public List<Door> getDoors() {return doors;}
+
     public void setDoors(List<Door> doors) {this.doors = doors;}
+
     public List<Coin> getCoins(){return coins;}
+
     public void setCoins(List<Coin> coins) {this.coins = coins;}
 
     public boolean isCoins(Position position){
