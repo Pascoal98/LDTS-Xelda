@@ -75,7 +75,7 @@ public class Inventory {
             this.items.remove(it);
         }
         this.size--;
-        it.setQuantity(it.getQuantity()-1);
+        it.decrementsQuantity();
     }
 
     public List<Item> getAllItems() {
