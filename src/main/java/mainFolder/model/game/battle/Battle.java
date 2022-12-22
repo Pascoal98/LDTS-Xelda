@@ -17,7 +17,6 @@ public class Battle {
         this.labyrinth = labyrinth;
     }
 
-
     public Hero getHero() {
         return hero;
     }
@@ -28,10 +27,6 @@ public class Battle {
 
     public Monster getMonster() {
         return monster;
-    }
-
-    public void setMonster(Monster monster) {
-        this.monster = monster;
     }
 
     public Labyrinth getLabyrinth() { return labyrinth;}

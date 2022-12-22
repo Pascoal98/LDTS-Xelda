@@ -7,39 +7,37 @@ import java.util.List;
 
 
 public class Hero extends Element{
-    private int max_health;
+    private int maxHealth;
     private int health;
     private int score;
     private Inventory inventory;
     private boolean isBattle = false;
-
     private boolean hasKey = false;
 
     public Hero(int x, int y) {
         super(x, y);
         this.health = 10;
-        this.max_health = 10;
+        this.maxHealth = 10;
         this.inventory = new Inventory(this);
-    }
-
-    public void setHealth(int health) {
-        this.health = health;
     }
 
     public int getHealth() {
         return health;
     }
 
-    public void setMaxHealth(int max_health) {
-        this.max_health = max_health;
-    }
-
     public int getMaxHealth() {
-        return max_health;
+        return maxHealth;
     }
-
+    
+    public void increaseMaxHealth() {
+        maxHealth++;
+    }
     public void decreaseHealth() {
         health--;
+    }
+    
+    public void increaseHealth() {
+        health++;
     }
 
     public void addItem(Item item) {
@@ -57,10 +55,14 @@ public class Hero extends Element{
     public int getInventoryMaxSize() {
         return inventory.getMaxSize();
     }
+    
     public List<Item> getItems() {
         return inventory.getAllItems();
     }
 
+    public List<String> getItemsNames() {
+        return inventory.getItemsNames();
+    }
     public void initBattle(Boolean bool) {
         this.isBattle = bool;
     }
@@ -78,11 +80,7 @@ public class Hero extends Element{
     public boolean inventoryHasSpace() {
         return inventory.hasSpace();
     }
-
-    public boolean getKey() {
-        return hasKey;
-    }
-
+    
     public void setKey(Boolean bool) {
         this.hasKey = bool;
     }

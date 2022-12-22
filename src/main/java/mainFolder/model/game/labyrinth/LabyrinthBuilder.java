@@ -8,27 +8,26 @@ import java.util.List;
 public abstract class LabyrinthBuilder {
 
     Labyrinth labyrinth;
+
     public Labyrinth createLabyrinth() {
         labyrinth = new Labyrinth(getWidth(), getHeight(), getLevel(), getMaxLevel());
 
-        labyrinth.setHero(createHero());
-        labyrinth.setMonsters(createMonsters());
-        labyrinth.setWalls(createWalls());
-        labyrinth.setCoins(createCoins());
-        labyrinth.setDoors(createDoors());
-        labyrinth.setShop(createShop());
-        labyrinth.setPortal(createPortal());
-        labyrinth.setKey(createKey());
+        fillLabyrinth();
 
         return labyrinth;
     }
 
     public Labyrinth createLabyrinth(Hero hero) {
         labyrinth = new Labyrinth(getWidth(), getHeight(), getLevel(), getMaxLevel());
-        
-        hero.setPosition(loadHero());
+
+        fillLabyrinth();
+        loadHero(hero);
+
+        return labyrinth;
+    }
+
+    public void fillLabyrinth() {
         labyrinth.setHero(createHero());
-        labyrinth.setHero(hero);
         labyrinth.setMonsters(createMonsters());
         labyrinth.setWalls(createWalls());
         labyrinth.setCoins(createCoins());
@@ -36,22 +35,11 @@ public abstract class LabyrinthBuilder {
         labyrinth.setShop(createShop());
         labyrinth.setPortal(createPortal());
         labyrinth.setKey(createKey());
-
-        return labyrinth;
     }
 
-    public Labyrinth load() {
-
-        labyrinth.setHero(labyrinth.getHero());
-        labyrinth.setMonsters(labyrinth.getMonsters());
-        labyrinth.setWalls(labyrinth.getWalls());
-        labyrinth.setCoins(labyrinth.getCoins());
-        labyrinth.setDoors(labyrinth.getDoors());
-        labyrinth.setShop(labyrinth.getShop());
-        labyrinth.setPortal(labyrinth.getPortal());
-        labyrinth.setKey(labyrinth.getKey());
-
-        return labyrinth;
+    public void loadHero(Hero hero) {
+        hero.setPosition(loadHeroPosition());
+        labyrinth.setHero(hero);
     }
 
     public Labyrinth getLabyrinth() {
@@ -72,7 +60,7 @@ public abstract class LabyrinthBuilder {
 
     protected abstract Hero createHero();
 
-    protected abstract Position loadHero();
+    protected abstract Position loadHeroPosition();
 
     protected abstract List<Coin> createCoins();
 

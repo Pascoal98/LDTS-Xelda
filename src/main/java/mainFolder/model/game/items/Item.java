@@ -1,6 +1,5 @@
 package mainFolder.model.game.items;
 
-import mainFolder.model.Position;
 import mainFolder.model.game.elements.Hero;
 
 public abstract class Item {
@@ -8,6 +7,7 @@ public abstract class Item {
     Hero hero;
     private final String name;
     private int quantity = 0;
+
     public Item(String name) {
         this.name = name;
     }
