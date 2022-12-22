@@ -8,26 +8,18 @@ import java.util.List;
 public abstract class MenuBuilder {
     public MainMenu createMenu(){
         MainMenu mainMenu = new MainMenu();
+        fillMenu(mainMenu);
+        return mainMenu;
+    }
+
+    private void fillMenu(MainMenu mainMenu) {
         mainMenu.setWhite(createWhite());
         mainMenu.setBlue(createBlue());
         mainMenu.setBrown(createBrown());
         mainMenu.setGreen(createGreen());
         mainMenu.setBorder(createBorder());
-        return mainMenu;
-    }
-    /*
-    public GameOverMenu createGameOverMenu(){
-        GameOverMenu gameOverMenu = new GameOverMenu(1);
-        gameOverMenu.setBorder(createBorder());
-        return gameOverMenu;
     }
 
-    public WinMenu createWinMenu(){
-        WinMenu victoryMenu = new WinMenu(1);
-        victoryMenu.setBorder(createBorder());
-        return victoryMenu;
-    }
-    */
     protected abstract List<Position> createWhite();
     protected abstract List<Position> createBlue();
     protected abstract List<Position> createBrown();

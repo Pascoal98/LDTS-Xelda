@@ -13,9 +13,9 @@ import java.util.HashMap;
 public class ShopMenu extends Menu {
 
     private final HashMap<String, Integer> shop;
+    private final Hero hero;
+    private final Labyrinth labyrinth;
 
-    private Hero hero;
-    private Labyrinth labyrinth;
     public ShopMenu(HashMap<String, Integer> shop, Labyrinth labyrinth, Hero hero) {
         super(Arrays.asList("Health Potion", "Extra Health Potion", "Exit"));
         this.hero = hero;
@@ -26,29 +26,29 @@ public class ShopMenu extends Menu {
     public Labyrinth getLabyrinth() {
         return labyrinth;
     }
+
     public boolean isSelectedHealthPotion() {
         return isSelected(0);
     }
 
     public void buyHealthPotion() {
-        boolean hasCoins = hero.getScore() >= shop.get("Health Potion");
-        boolean inventoryHasSpace = hero.inventoryHasSpace();
-
-        if(hasCoins && inventoryHasSpace) {
-            Item item = new HealthPotion(hero);
-            hero.addItem(item);
-            hero.setScore(hero.getScore() - shop.get("Health Potion"));
-        }
+        Item potion = new HealthPotion(hero);
+        buyPotion(potion);
     }
 
     public void buyExtraHealthPotion() {
-        boolean hasCoins = hero.getScore() >= shop.get("Extra Health Potion");
+        Item potion = new ExtraHealthPotion(hero);
+        buyPotion(potion);
+    }
+
+    public void buyPotion(Item potion) {
+        int potionPrice = shop.get(potion.getName());
+        boolean hasCoins = hero.getScore() >= shop.get(potion.getName());
         boolean inventoryHasSpace = hero.inventoryHasSpace();
 
         if(hasCoins && inventoryHasSpace) {
-            Item item = new ExtraHealthPotion(hero);
-            hero.addItem(item);
-            hero.setScore(hero.getScore() - shop.get("Extra Health Potion"));
+            hero.addItem(potion);
+            hero.setScore(hero.getScore() - potionPrice);
         }
     }
 
