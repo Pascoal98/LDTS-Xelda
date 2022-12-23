@@ -82,12 +82,4 @@ public class Inventory {
     public List<Item> getAllItems() {
         return new ArrayList<>(items);
     }
-
-    public List<String> getItemsNames() {
-        List<String> names = new ArrayList<>();
-        for(Item item : items) {
-            names.add(item.getName());
-        }
-        return names;
-    }
 }
