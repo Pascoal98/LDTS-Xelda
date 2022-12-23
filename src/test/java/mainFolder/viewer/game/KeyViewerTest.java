@@ -1,7 +1,9 @@
-package mainFolder.viewer.game.elements;
+package mainFolder.viewer.game;
 
 import mainFolder.gui.GUI;
+import mainFolder.model.game.elements.Door;
 import mainFolder.model.game.elements.Key;
+import mainFolder.viewer.game.DoorViewer;
 import mainFolder.viewer.game.ElementViewer;
 import mainFolder.viewer.game.KeyViewer;
 import org.junit.jupiter.api.BeforeEach;
@@ -13,25 +15,33 @@ import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.*;
 
 class KeyViewerTest {
+    private GUI gui;
+    private Key key;
+    private KeyViewer viewer;
+
+    @BeforeEach
+    public void setUp() {
+        // Create a mock GUI object
+        gui = mock(GUI.class);
+
+        // Create a Door object
+        key = new Key(5, 5);
+
+        // Create a DoorViewer object
+        viewer = new KeyViewer();
+    }
     @Test
     public void testKeyViewerImplementsElementViewer() {
-        KeyViewer viewer = new KeyViewer();
         assertTrue(viewer instanceof ElementViewer);
     }
     @Test
     public void testKeyViewerDraw() {
-        GUI gui = mock(GUI.class);
-        KeyViewer viewer = new KeyViewer();
-        Key key = new Key(10, 20);
         viewer.draw(key, gui);
         verify(gui).drawKey(key.getPosition());
     }
     @Test
     public void testKeyViewerDrawException() {
-        GUI gui = mock(GUI.class);
         doThrow(new RuntimeException()).when(gui).drawKey(any());  // configure mock GUI to throw exception
-        KeyViewer viewer = new KeyViewer();
-        Key key = new Key(10, 20);
         try {
             viewer.draw(key, gui);  // call draw() method
             fail("Expected exception to be thrown");  // if no exception is thrown, fail the test

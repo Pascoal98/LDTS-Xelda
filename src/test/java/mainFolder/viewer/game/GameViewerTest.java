@@ -1,4 +1,4 @@
-package mainFolder.viewer.game.elements;
+package mainFolder.viewer.game;
 
 import mainFolder.gui.GUI;
 import mainFolder.model.game.elements.Coin;
@@ -8,6 +8,7 @@ import mainFolder.model.game.elements.Key;
 import mainFolder.model.game.labyrinth.Labyrinth;
 import mainFolder.viewer.Viewer;
 import mainFolder.viewer.game.*;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 
@@ -21,17 +22,23 @@ import static org.mockito.Mockito.*;
 
 class GameViewerTest {
 
+    private GUI gui;
+    private Labyrinth labyrinth;
+    private GameViewer gameViewer;
+
+    @BeforeEach
+    public void setUp() {
+        gui = mock(GUI.class);
+        labyrinth = mock(Labyrinth.class);
+        gameViewer = new GameViewer(labyrinth);
+    }
     @Test
     public void testGameViewerExtendsViewer() {
-        Labyrinth labyrinth = mock(Labyrinth.class);
-        GameViewer viewer = new GameViewer(labyrinth);
-        assertTrue(viewer instanceof Viewer);
+        assertTrue(gameViewer instanceof GameViewer);
     }
     @Test
     public void testGameViewerConstructor() {
-        Labyrinth labyrinth = mock(Labyrinth.class);
-        GameViewer viewer = new GameViewer(labyrinth);
-        assertSame(labyrinth, viewer.getModel());
+        assertSame(labyrinth, gameViewer.getModel());
     }
     @Test
     public void testGameViewerDrawElements() {

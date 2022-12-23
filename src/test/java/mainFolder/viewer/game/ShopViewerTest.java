@@ -1,7 +1,9 @@
 package mainFolder.viewer.game;
 
 import mainFolder.gui.GUI;
+import mainFolder.model.game.elements.Portal;
 import mainFolder.model.game.elements.Shop;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -9,28 +11,30 @@ import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.*;
 
 class ShopViewerTest {
+    private GUI gui;
+    private Shop shop;
+    private ShopViewer shopViewer;
 
+    @BeforeEach
+    public void setUp() {
+        gui = mock(GUI.class);
+        shop = mock(Shop.class);
+        shopViewer = new ShopViewer();
+    }
     @Test
     public void testShopViewerImplementsElementViewer() {
-        ShopViewer viewer = new ShopViewer();
-        assertTrue(viewer instanceof ElementViewer);
+        assertTrue(shopViewer instanceof ElementViewer);
     }
     @Test
     public void testShopViewerDraw() {
-        GUI gui = mock(GUI.class);
-        ShopViewer viewer = new ShopViewer();
-        Shop shop = new Shop(10, 20);
-        viewer.draw(shop, gui);
+        shopViewer.draw(shop, gui);
         verify(gui).drawShop(shop.getPosition());
     }
     @Test
     public void testShopViewerDrawException() {
-        GUI gui = mock(GUI.class);
         doThrow(new RuntimeException()).when(gui).drawShop(any());
-        ShopViewer viewer = new ShopViewer();
-        Shop shop = new Shop(10, 20);
         try {
-            viewer.draw(shop, gui);
+            shopViewer.draw(shop, gui);
             fail("Expected exception to be thrown");
         } catch (RuntimeException e) {
             // expected behavior

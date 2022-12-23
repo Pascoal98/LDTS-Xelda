@@ -1,4 +1,4 @@
-package mainFolder.viewer.game.elements;
+package mainFolder.viewer.game;
 
 import mainFolder.gui.GUI;
 import mainFolder.model.game.elements.Door;
@@ -12,6 +12,21 @@ import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.*;
 
 class DoorViewerTest {
+    private GUI gui;
+    private Door door;
+    private DoorViewer viewer;
+
+    @BeforeEach
+    public void setUp() {
+        // Create a mock GUI object
+        gui = mock(GUI.class);
+
+        // Create a Door object
+        door = new Door(5, 5);
+
+        // Create a DoorViewer object
+        viewer = new DoorViewer();
+    }
     @Test
     public void testDoorViewerImplementsElementViewer() {
         DoorViewer viewer = new DoorViewer();
@@ -19,18 +34,12 @@ class DoorViewerTest {
     }
     @Test
     public void testDoorViewerDraw() {
-        GUI gui = mock(GUI.class);
-        DoorViewer viewer = new DoorViewer();
-        Door door = new Door(10, 20);
         viewer.draw(door, gui);
         verify(gui).drawDoor(door.getPosition());
     }
     @Test
     public void testDoorViewerDrawException() {
-        GUI gui = mock(GUI.class);
         doThrow(new RuntimeException()).when(gui).drawDoor(any());
-        DoorViewer viewer = new DoorViewer();
-        Door door = new Door(10, 20);
         try {
             viewer.draw(door, gui);
             fail("Expected exception to be thrown"); //if no execption is thrown, the test is set to fail
