@@ -3,7 +3,3 @@
 out/
 build/
 *.iml
-gradlew
-gradlew.bat
-**/.DS_Store
-.jqwik-database
