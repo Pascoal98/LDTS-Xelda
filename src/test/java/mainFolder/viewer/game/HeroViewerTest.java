@@ -1,7 +1,8 @@
-package mainFolder.viewer.game;
+package mainFolder.viewer.game.elements;
 
 import mainFolder.gui.GUI;
 import mainFolder.model.game.elements.Hero;
+import mainFolder.viewer.game.HeroViewer;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;

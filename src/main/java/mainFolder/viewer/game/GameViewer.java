@@ -31,12 +31,12 @@ public class GameViewer extends Viewer<Labyrinth> {
         gui.drawText(new Position(22, 0), "Level:" + getModel().getLevel() + "/" + getModel().getMaxLevel(), "#FFFFFF", "#323232");
     }
 
-    private <T extends Element> void drawElements(GUI gui, List<T> elements, ElementViewer<T> viewer) {
+    public <T extends Element> void drawElements(GUI gui, List<T> elements, ElementViewer<T> viewer) {
         for (T element : elements)
             drawElement(gui, element, viewer);
     }
 
-    private <T extends Element> void drawElement(GUI gui, T element, ElementViewer<T> viewer) {
+    public <T extends Element> void drawElement(GUI gui, T element, ElementViewer<T> viewer) {
         viewer.draw(element, gui);
     }
 }
