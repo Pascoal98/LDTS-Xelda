@@ -20,13 +20,6 @@ public abstract class Item {
         return this.quantity;
     }
 
-    public void setQuantity(int quantity) {
-        if(quantity < 0) {
-            return;
-        }
-        this.quantity = quantity;
-    }
-
     public void incrementsQuantity() {
         this.quantity++;
     }
