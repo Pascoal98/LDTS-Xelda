@@ -35,9 +35,9 @@ public class BattleMenuController extends Controller<BattleMenu> {
                 getModel().nextEntry();
                 break;
             case SELECT:
-                if (getModel().isSelectedRock()) getModel().useRock();
-                if (getModel().isSelectedPaper()) getModel().usePaper();
-                if (getModel().isSelectedScissors()) getModel().useScissors();
+                if(getModel().isSelectedRock()) getModel().useRock();
+                if(getModel().isSelectedPaper()) getModel().usePaper();
+                if(getModel().isSelectedScissors()) getModel().useScissors();
                 if(getModel().getHero().getHealth() == 0) game.setState(new GameOverMenuState(new GameOverMenu(getModel().getHero().getScore())));
                 if(getModel().getMonster().getHealth() == 0) heroWin(game);
         }
