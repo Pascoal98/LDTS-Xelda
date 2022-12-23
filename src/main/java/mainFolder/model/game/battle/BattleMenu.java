@@ -98,6 +98,13 @@ public class BattleMenu extends Battle{
             currentEntry = entries.size() - 1;
     }
 
+    public void resetBattle() {
+        heroMove = null;
+        monsterMove = null;
+        rounds = 0;
+        hero.initBattle(false);
+    }
+
     public int getNumberEntries() {
         return entries.size();
     }

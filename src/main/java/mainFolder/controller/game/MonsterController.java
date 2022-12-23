@@ -27,13 +27,16 @@ public class MonsterController extends GameController {
         }
     }
 
+    private void initBattle(Monster monster) {
+        getModel().getHero().initBattle(true);
+        getModel().createBattle(getModel().getHero(), monster);
+    }
+
     private void moveMonster(Monster monster, Position position) {
         if (getModel().canHeroMove(position)) {
             monster.setPosition(position);
-            if (getModel().getHero().getPosition().equals(position)) {
-                getModel().getHero().initBattle(true);
-                getModel().createBattle(getModel().getHero(), monster);
-            }
+            if (getModel().getHero().getPosition().equals(position))
+                initBattle(monster);
         }
     }
 }

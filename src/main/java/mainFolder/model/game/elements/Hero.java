@@ -21,6 +21,9 @@ public class Hero extends Element{
         this.inventory = new Inventory(this);
     }
 
+    public void killedMonster() {
+        score += 5;
+    }
     public int getHealth() {
         return health;
     }
@@ -60,9 +63,6 @@ public class Hero extends Element{
         return inventory.getAllItems();
     }
 
-    public List<String> getItemsNames() {
-        return inventory.getItemsNames();
-    }
     public void initBattle(Boolean bool) {
         this.isBattle = bool;
     }

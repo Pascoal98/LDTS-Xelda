@@ -1,9 +1,8 @@
-package mainFolder.controller.game;
+package mainFolder.controller.menu;
 
 import mainFolder.Start;
 import mainFolder.controller.Controller;
 import mainFolder.gui.GUI;
-import mainFolder.model.game.labyrinth.LoaderLabyrinthBuilder;
 import mainFolder.model.menu.InventoryMenu;
 import mainFolder.states.GameState;
 
@@ -24,12 +23,8 @@ public class InventoryController extends Controller<InventoryMenu> {
                 getModel().nextEntry();
                 break;
             case SELECT:
-                if(getModel().isSelectedExtraHealthPotion()) {
-                    getModel().useExtraHealthPotion();
-                }
-                if(getModel().isSelectedHealthPotion()) {
-                    getModel().useHealthPotion();
-                }
+                if(getModel().isSelectedExtraHealthPotion()) getModel().useExtraHealthPotion();
+                if(getModel().isSelectedHealthPotion()) getModel().useHealthPotion();
                 if(getModel().isSelectedExit()) game.setState(new GameState(getModel().getLabyrinth()));
         }
     }
