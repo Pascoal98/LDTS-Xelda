@@ -84,7 +84,6 @@ public class InventoryTest {
     }
 
 
-    //TODO:VERIFICAR
     @Test
     public void addExistingItemTest() {
         inventory.addItem(healthPotion);
