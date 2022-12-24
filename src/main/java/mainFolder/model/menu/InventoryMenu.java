@@ -31,14 +31,14 @@ public class InventoryMenu {
         this.labyrinth = labyrinth;
     }
 
-    public void fillEntries() {
+    private void fillEntries() {
         for(Item item : items) {
             this.entries.add(item.getName());
         }
         this.entries.add("Exit");
     }
 
-    public void fillQuantities() {
+    private void fillQuantities() {
         for(Item item : items) {
             this.quantities.add(Integer.toString(item.getQuantity()));
         }
@@ -60,12 +60,6 @@ public class InventoryMenu {
         return entries.get(i);
     }
 
-    public String getEntryQuantity(int i) {
-        //need this condition because entries has 1 more element : "Exit"
-        if(i >= quantities.size())
-            return null;
-        return quantities.get(i);
-    }
     public boolean isSelected(int i) {
         return currentEntry == i;
     }

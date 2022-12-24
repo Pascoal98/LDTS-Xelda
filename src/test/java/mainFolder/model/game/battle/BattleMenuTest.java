@@ -1,13 +1,20 @@
 package mainFolder.model.game.battle;
 
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 class BattleMenuTest {
 
+    @BeforeEach
+    public void helper() {
+
+    }
+
     @Test
-    void isSelectedRock() {
+    public void isSelectedRockTest() {
+
     }
 
     @Test

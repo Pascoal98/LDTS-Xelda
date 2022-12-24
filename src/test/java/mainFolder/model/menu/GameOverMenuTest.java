@@ -1,5 +1,6 @@
 package mainFolder.model.menu;
 
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -21,15 +22,14 @@ class GameOverMenuTest {
 
     @Test
     void testIsSelectedRetry() {
-        gameOverMenu.isSelected(0);
-        assertTrue(gameOverMenu.isSelectedRetry());
+        Assertions.assertTrue(gameOverMenu.isSelected(0));
+        Assertions.assertTrue(gameOverMenu.isSelectedRetry());
     }
-    /*
+
     @Test
     void testIsSelectedExit() {
-        gameOverMenu.isSelected(1);
-        assertTrue(gameOverMenu.isSelectedExit());
+        gameOverMenu.nextEntry();
+        Assertions.assertTrue(gameOverMenu.isSelected(1));
+        Assertions.assertTrue(gameOverMenu.isSelectedExit());
     }
-    */
-
 }
