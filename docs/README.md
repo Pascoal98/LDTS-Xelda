@@ -115,9 +115,15 @@ The builder pattern is implemented in all of the classes that use the labyrinthb
 ## Refactoring and Code Smells
 ### **Extract Variable**
 In order to simplify the if clause in Buypotion() method, we simply extracted the variables (Composing Method : Extract Variable). The conditions were very difficult to read, which made the method hard to understand. To resolve this problem we used Extract Variable, which made the code easier to read.
+![](images/variableHard.png)
+
+![](images/variableEasy.png)
 
 ### **Extract Method**
 Some methods were almost identical, so we used the Extract Method to simplify these methods. We did this by creating a new method which used the common parts of the other methods and we just called this method, which made the code easier to read, and eliminating long methods.
+![](images/methodHard.png)
+
+![](images/methodEasy.png)
 
 ### **Dead code**
 While we refactored the code, we stopped using some methods, becoming dead code, so we just deleted them.
@@ -126,7 +132,7 @@ The game worked exactly the same way as these methods weren't being used, theref
 ![](images/deadcode.png)
 
 ### **Feature envy and message chains**
-As the result of the **MVC** (Model-View-Controller) pattern some of the controllers use is narrowed to its model method calls. Our controller envies its model.
+As the result of the **MVC** (Model-View-Controller) pattern some controllers use is narrowed to its model method calls. Our controller envies its model.
 Also, in order to access a certain model's parameter it is mandatory to start by making a request to its controller.
 
 ---
