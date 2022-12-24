@@ -19,6 +19,4 @@ class BattleMenuViewerTest {
         BattleMenuViewer viewer = new BattleMenuViewer(battleMenu);
         assertTrue(viewer instanceof Viewer);
     }
-
-
 }
