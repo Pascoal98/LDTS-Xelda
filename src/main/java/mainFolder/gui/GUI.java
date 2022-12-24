@@ -35,7 +35,7 @@ public interface GUI {
 
     void close() throws IOException;
 
-    enum ACTION {UP, RIGHT, DOWN, LEFT, NONE, QUIT, SELECT, INVENTORY, SHOP}
+    enum ACTION {UP, RIGHT, DOWN, LEFT, NONE, QUIT, SELECT, INVENTORY, GO_UP, SHOP}
 
     void drawBorder(List<Position> border);
     void drawBackground();

@@ -16,6 +16,9 @@ public class MonsterController extends GameController {
 
         this.lastMovement = 0;
     }
+    public long getLastMovement() {
+        return lastMovement;
+    }
 
     @Override
     public void step(Start game, GUI.ACTION action, long time) throws IOException {
