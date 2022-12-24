@@ -137,8 +137,6 @@ public class BattleMenu extends Battle{
         this.monsterMove = string;
     }
 
-    public void setRounds(int number) {this.rounds = number;}
-
     public int getRounds() {return rounds;}
 
     public void incrementRound() {
