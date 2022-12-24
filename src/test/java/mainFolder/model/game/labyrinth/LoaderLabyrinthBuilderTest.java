@@ -94,6 +94,12 @@ public class LoaderLabyrinthBuilderTest {
     }
 
     @Test
+    public void createShopTest() {
+        Shop shop = loaderLabyrinthBuilder.createShop();
+        Assertions.assertNotNull(shop);
+    }
+
+    @Test
     public void creatPortalTest() {
         Portal portal = loaderLabyrinthBuilder.createPortal();
         Assertions.assertNotNull(portal);
