@@ -60,25 +60,55 @@ While we were organizing the project, we realized that the code would get very m
 #### The Pattern:
 
 We have applied the **MVC** (model-view-controller) pattern. This pattern separates the game logic from the display code, allowing us to easily fix bugs and improve code readability.
-We used the architectural pattern because it purpose is to store data (model), classes that control the logic of the game (controllers) and classes that are responsible for the visual effects on the screen (viewers).
+We used the architectural pattern because its purpose is to store data (model), classes that control the logic of the game (controllers) and classes that are responsible for the visual effects on the screen (viewers).
 
-**Implementation**
-
+#### Implementation:
+With this pattern, we now haave classes which main purpose is to store data (model), classes for visual effects (viewers) and classes that control what happens in the game (controllers).
 The following image shows how we implemented the pattern.
 
 ![](images/mvc.svg)
 
-**Implementation.**
+#### Consequences:
 - Model - Represents the data.
 - View - Displays the model data, and sends user actions (user inputs, such as pressing the keyboard) to the controller.
 - Controller - Provides model data to the view, and processes user actions (user inputs, such as pressing the keyboard).
 
 ### States
-#### Problem in Context
+#### Problem in Context:
+In this game we can play, we can go into a shop, or into an inventory, or even battle. So we need to find a way to manage this whole aspect of the game.
 
-**Consequences.**
-- Modifications do not affect the entire model.
+### The Pattern:
+The **State Pattern** is a great design pattern that allow us to manage this problem, providing a way to control everything in the game.
+
+#### Implementation:
+Every object has a state, that allows to manage what it does in the game.
+
+![](images/state.png)
+
+#### Consequences:
+- It makes state transitions explicit.
 - Easy planning and maintenance.
+- States can be shared.
+
+### Labyrinth builder
+#### Problem in Context:
+In a labyrinth, we have a lot of elements, such as walls, keys, monsters, coins, a hero, a portal and a shop.
+Since we have more than one level, we need to have a builder that needs to be able to build every labyrinth.
+
+#### The Pattern:
+The **Factory Method** and **Builder** are two design patterns optimal for this problem. While the first one provides an interface for creating objects and alter the type of objects that will be created, the second one allows to construct more complex objects in a way that makes the code simpler.
+
+#### Implementation:
+The LabyrinthBuilder is responsible for constructing the labyrinth, but the classes that extend this class are the ones that create the Labyrinth.
+The builder pattern is implemented in all of the classes that use the labyrinthbuilder, allowing to construct the labyrinth in smaller steps.
+
+![](images/factory.png)
+![](images/builder.png)
+
+#### Consequences:
+- Great for maintaining the Open/Closed Principle. We can just add new features just by writing code.
+- Provides 'hooks' for subclasses. Creating objects inside a class with a factory method is always more flexible than creating an object directly.
+- Great control over the construction process.
 
 ------
 
