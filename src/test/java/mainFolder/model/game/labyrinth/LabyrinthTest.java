@@ -83,16 +83,7 @@ public class LabyrinthTest {
     public void inRangeShopTest() {
         Shop shop = Mockito.mock(Shop.class);
         Hero hero = Mockito.mock(Hero.class);
-        labyrinth.setHero(hero);
-        labyrinth.setShop(shop);
 
-        Mockito.when(shop.getPosition().getX()).thenReturn(0);
-        Mockito.when(shop.getPosition().getY()).thenReturn(0);
-
-        Mockito.when(hero.getPosition().getX()).thenReturn(1);
-        Mockito.when(hero.getPosition().getY()).thenReturn(1);
-
-        Assertions.assertTrue(labyrinth.inRangeShop());
     }
 
 
